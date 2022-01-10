@@ -1,13 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Modal } from "../components/Modal";
 
 export const Home = () => {
+  const [openModal, setOpenModal] = useState(false);
   return (
-    <div>
+    <div className="home">
       <h2>Home</h2>
-      <button>
-        <Link to="/tasks">Add Task</Link>
-      </button>
+      <button onClick={() => setOpenModal(true)}>Add Task</button>
+      {openModal ? <Modal /> : null}
     </div>
   );
 };

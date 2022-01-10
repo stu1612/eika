@@ -1,3 +1,5 @@
+/* Base styles */
+
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +18,8 @@
 html,
 body {
   font-family: "Noto Sans", sans-serif;
+  min-height: 100vh;
+  width: 100%;
 }
 
 button,
@@ -28,4 +32,17 @@ input {
 a {
   text-decoration: none;
   color: var(--black);
+}
+
+/* Components */
+
+.modal {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: yellow;
+  z-index: 10;
 }
