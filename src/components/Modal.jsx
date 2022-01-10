@@ -1,13 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { Form } from "./Form";
 
 export const Modal = () => {
   return (
-    <div className="modal">
-      <h2>Modal</h2>
-      <button>
-        <Link to="/tasks">Tasks</Link>
-      </button>
+    <div className="grid-container">
+      <Form />
     </div>
   );
 };

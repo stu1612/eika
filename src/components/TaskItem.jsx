@@ -8,13 +8,13 @@ export const TaskItem = () => {
         <input type="checkbox" />
       </div>
       <div className="task-content">
-        <div className="align-left">
-          <div className="task-items">
-            <p>Item name</p>
+        <div className="task-content__left">
+          <div className="task-content__items">
+            <p>Item name{","}</p>
             <p>price</p>
           </div>
         </div>
-        <div className="align-right">
+        <div className="task-content__image">
           <img src={img} alt="logo" className="task-image" />
         </div>
       </div>

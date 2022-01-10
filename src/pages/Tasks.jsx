@@ -14,13 +14,14 @@ export const Tasks = () => {
         <span className="light">Name</span>
         <span className="light">Price</span>
       </div>
-      <div className="btn-container">
-        <Button title="add item" onClick={null} />
-      </div>
+
       <div className="task-list">
         <TaskItem />
         <TaskItem />
         <TaskItem />
+      </div>
+      <div className="btn-container">
+        <Button title="add item" onClick={null} />
       </div>
       <div className="content-description text-center">
         <span className="light">View completed items</span>

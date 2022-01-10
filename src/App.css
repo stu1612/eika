@@ -1,6 +1,8 @@
 /* Base styles */
 
-* {
+*,
+*:before,
+*:after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -50,6 +52,38 @@ a {
   color: var(--black);
 }
 
+input[type="text"],
+input[type="number"] {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background-color: var(--brand-blue);
+  border: 0;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--white);
+  font-weight: 100;
+  text-transform: capitalize;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: var(--white);
+  font-weight: 100;
+  text-transform: capitalize;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: var(--white);
+  font-weight: 100;
+  text-transform: capitalize;
+}
+
 .App {
   display: flex;
   justify-content: center;
@@ -70,11 +104,18 @@ a {
   text-align: center;
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 /* Typograpthy */
 
 .normal,
 .light {
   margin: 0 1rem;
+  font-size: 12px;
 }
 
 .light {
@@ -130,43 +171,6 @@ a {
   max-width: 550px;
 }
 
-/* Task Item */
-
-.row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.checkbox {
-  float: left;
-}
-
-.task-content {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.align-left {
-  display: flex;
-}
-
-.task-items {
-  display: flex;
-  align-items: center;
-}
-
-.task-items p {
-  padding: 0 0.5rem;
-}
-
-.task-image {
-  height: 50px;
-  width: 50px;
-  object-fit: contain;
-}
-
 /* Form */
 
 .modal {
@@ -180,7 +184,9 @@ a {
   z-index: 10;
 }
 
-/* Components */
+/* COMPONENTS */
+
+/* Button */
 
 .button {
   background-color: var(--brand-blue);
@@ -200,3 +206,41 @@ a {
 button:hover {
   background-color: var(--brand-blue-darker);
 }
+
+/* Task Item */
+
+.checkbox {
+  float: left;
+}
+
+.task-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.task-content__left {
+  display: flex;
+}
+
+.task-content__items {
+  display: flex;
+  align-items: center;
+}
+
+.task-content__items p {
+  padding: 0 0.5rem;
+}
+
+.task-content__image {
+  height: 50px;
+  width: 50px;
+}
+
+.task-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Input */
