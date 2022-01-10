@@ -8,11 +8,13 @@
 
 :root {
   --brand-blue: #0058ab;
+  --brand-blue-darker: #014788;
   --brand-yellow: #ffcd00;
   --white: #fff;
   --black: #000;
-  --font-title: 2.5rem;
-  --font-text: 1.4rem;
+  --font-title: 25px;
+  --font-text: 14px;
+  --radius: 4px;
 }
 
 html,
@@ -27,6 +29,18 @@ input {
   outline: none;
   background-color: transparent;
   border: none;
+}
+
+h1,
+h2 {
+  margin: 0;
+  font-size: var(--font-title);
+}
+
+p {
+  font-size: var(--font-text);
+  line-height: 1.2rem;
+  font-weight: 100;
 }
 
 a {
@@ -51,7 +65,28 @@ a {
   text-align: center;
 }
 
-/* Components */
+/* components */
+
+.button {
+  background-color: var(--brand-blue);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-transform: capitalize;
+  text-align: center;
+  word-spacing: normal;
+  font-weight: 100;
+  font-size: var(--font-text);
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--brand-blue-darker);
+}
+
+/* classes */
 
 .image-wrapper {
   width: 100%;
@@ -64,7 +99,7 @@ a {
 }
 
 .content-description {
-  width: 100%;
+  width: 80%;
   max-width: 600px;
   text-align: justify;
 }
