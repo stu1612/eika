@@ -17,3 +17,15 @@ html,
 body {
   font-family: "Noto Sans", sans-serif;
 }
+
+button,
+input {
+  outline: none;
+  background-color: transparent;
+  border: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
+}

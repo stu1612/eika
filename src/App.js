@@ -1,3 +1,8 @@
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { Tasks } from "./pages/Tasks";
+
 import "./App.css";
 
 // EIKA APP Objectives
@@ -52,7 +57,10 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <h1>eika</h1>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="tasks" element={<Tasks />} />
+      </Routes>
     </div>
   );
 }
