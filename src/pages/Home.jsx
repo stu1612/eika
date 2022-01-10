@@ -6,13 +6,13 @@ export const Home = () => {
   const [openModal, setOpenModal] = useState(false);
   return (
     <section className="grid-container" id="home">
-      <div className="home home-image__container">
+      <div className="image-wrapper">
         <img src={img} alt="online task list" className="home-image" />
       </div>
-      <div className="home-content__title">
+      <div className="content-title">
         <h2>Shopping List</h2>
       </div>
-      <div className="home-content__description">
+      <div className="content-description">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
           corrupti quibusdam aliquam possimus error molestiae sunt nisi

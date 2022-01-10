@@ -44,7 +44,6 @@ a {
 .grid-container {
   display: grid;
   width: min(95%, 50rem);
-  background-color: yellow;
   min-height: 100vh;
   row-gap: 1.5rem;
   justify-items: center;
@@ -54,11 +53,9 @@ a {
 
 /* Components */
 
-.section-container {
-}
-
-.home-image__container {
-  width: 40%;
+.image-wrapper {
+  width: 100%;
+  max-width: 300px;
 }
 
 .home-image {
@@ -66,8 +63,9 @@ a {
   object-fit: contain;
 }
 
-.home-content__description {
-  width: 60%;
+.content-description {
+  width: 100%;
+  max-width: 600px;
   text-align: justify;
 }
 
