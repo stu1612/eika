@@ -17,7 +17,11 @@ export const Tasks = () => {
       <div className="btn-container">
         <Button title="add item" onClick={null} />
       </div>
-      <TaskItem />
+      <div className="task-list">
+        <TaskItem />
+        <TaskItem />
+        <TaskItem />
+      </div>
       <div className="content-description text-center">
         <span className="light">View completed items</span>
       </div>

@@ -125,6 +125,48 @@ a {
   align-items: center;
 }
 
+.task-list {
+  width: 100%;
+  max-width: 550px;
+}
+
+/* Task Item */
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.checkbox {
+  float: left;
+}
+
+.task-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.align-left {
+  display: flex;
+}
+
+.task-items {
+  display: flex;
+  align-items: center;
+}
+
+.task-items p {
+  padding: 0 0.5rem;
+}
+
+.task-image {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
+}
+
 /* Form */
 
 .modal {
