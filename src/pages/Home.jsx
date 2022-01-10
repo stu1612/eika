@@ -17,7 +17,7 @@ export const Home = () => {
       <div className="content-title">
         <h1>Shopping List</h1>
       </div>
-      <div className="content-description">
+      <div className="content-description text-justify">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
           corrupti quibusdam aliquam possimus error molestiae sunt nisi
@@ -25,7 +25,7 @@ export const Home = () => {
         </p>
       </div>
       <div className="btn-container">
-        <Button title="add task" onClick={openModal} />
+        <Button title="add item" onClick={openModal} />
       </div>
       {modal ? <Modal /> : null}
     </section>

@@ -1,13 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { Button } from "../components/Button";
+import { TaskItem } from "../components/TaskItem";
 
 export const Tasks = () => {
   return (
-    <div>
-      <h2>Tasks</h2>
-      <button>
-        <Link to="/">To Home</Link>
-      </button>
-    </div>
+    <section className="grid-container" id="tasks">
+      <div className="content-title">
+        <h2>Shopping List</h2>
+      </div>
+      <div className="task-sortment">
+        <p className="normal">Sort by:</p>
+        <span className="light">Name</span>
+        <span className="light">Price</span>
+      </div>
+      <div className="btn-container">
+        <Button title="add item" onClick={null} />
+      </div>
+      <TaskItem />
+      <div className="content-description text-center">
+        <span className="light">View completed items</span>
+      </div>
+    </section>
   );
 };

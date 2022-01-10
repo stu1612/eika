@@ -12,6 +12,7 @@
   --brand-yellow: #ffcd00;
   --white: #fff;
   --black: #000;
+  --light: rgb(136, 135, 135);
   --font-title: 25px;
   --font-text: 14px;
   --radius: 4px;
@@ -37,7 +38,8 @@ h2 {
   font-size: var(--font-title);
 }
 
-p {
+p,
+span {
   font-size: var(--font-text);
   line-height: 1.2rem;
   font-weight: 100;
@@ -53,6 +55,44 @@ a {
   justify-content: center;
 }
 
+/* general styles */
+
+.content-description {
+  width: 80%;
+  max-width: 600px;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Typograpthy */
+
+.normal,
+.light {
+  margin: 0 1rem;
+}
+
+.light {
+  color: var(--light);
+  position: relative;
+  cursor: pointer;
+}
+
+.light::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  background: var(--light);
+  bottom: -2px;
+  left: 0;
+}
+
 /* Containers */
 
 .grid-container {
@@ -65,7 +105,40 @@ a {
   text-align: center;
 }
 
-/* components */
+/* Home classes */
+
+.image-wrapper {
+  width: 100%;
+  max-width: 300px;
+}
+
+.home-image {
+  width: 100%;
+  object-fit: contain;
+}
+
+/* Task classes */
+
+.task-sortment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* Form */
+
+.modal {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: yellow;
+  z-index: 10;
+}
+
+/* Components */
 
 .button {
   background-color: var(--brand-blue);
@@ -84,33 +157,4 @@ a {
 
 button:hover {
   background-color: var(--brand-blue-darker);
-}
-
-/* classes */
-
-.image-wrapper {
-  width: 100%;
-  max-width: 300px;
-}
-
-.home-image {
-  width: 100%;
-  object-fit: contain;
-}
-
-.content-description {
-  width: 80%;
-  max-width: 600px;
-  text-align: justify;
-}
-
-.modal {
-  position: absolute;
-  height: 100%;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: yellow;
-  z-index: 10;
 }
