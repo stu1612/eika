@@ -34,7 +34,42 @@ a {
   color: var(--black);
 }
 
+.App {
+  display: flex;
+  justify-content: center;
+}
+
+/* Containers */
+
+.grid-container {
+  display: grid;
+  width: min(95%, 50rem);
+  background-color: yellow;
+  min-height: 100vh;
+  row-gap: 1.5rem;
+  justify-items: center;
+  align-content: center;
+  text-align: center;
+}
+
 /* Components */
+
+.section-container {
+}
+
+.home-image__container {
+  width: 40%;
+}
+
+.home-image {
+  width: 100%;
+  object-fit: contain;
+}
+
+.home-content__description {
+  width: 60%;
+  text-align: justify;
+}
 
 .modal {
   position: absolute;
