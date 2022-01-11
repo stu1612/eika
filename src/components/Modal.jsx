@@ -11,12 +11,15 @@ export const Modal = () => {
           <img src={img} alt="online task list" className="home-image" />
         </div>
         <div className="flex">
-          <div className="content-title text-left">
-            <h1>Hello Shopper</h1>
+          <div className="padding-2">
+            <div className="content-title text-left">
+              <h2>Hello Shopper</h2>
+            </div>
+            <div className="text-left ">
+              <p>Please add your shopping item</p>
+            </div>
           </div>
-          <div className="text-center">
-            <p>Please add your shopping item</p>
-          </div>
+
           <Form />
         </div>
       </div>

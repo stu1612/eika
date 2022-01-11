@@ -23,6 +23,7 @@ export const Form = () => {
           type={"number"}
           onChange={(e) => setInputPrice(e.target.value)}
         />
+        <input type="file" />
         <div className="btn-container">
           <Button title="add item" onClick={null} />
         </div>
