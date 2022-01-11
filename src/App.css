@@ -14,7 +14,9 @@
   --brand-yellow: #ffcd00;
   --white: #fff;
   --black: #000;
-  --light: rgb(136, 135, 135);
+  --lightBlack: rgb(58, 58, 58);
+  --grey: rgb(136, 135, 135);
+  --lightGrey: rgb(199, 199, 199);
   --font-title: 25px;
   --font-text: 14px;
   --radius: 4px;
@@ -54,17 +56,14 @@ a {
 
 input[type="text"],
 input[type="number"] {
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
-  background-color: var(--brand-blue);
   border: 0;
   font-family: inherit;
-  font-size: 14px;
+  font-size: var(--font-text);
 }
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: var(--white);
+  color: var(--lightBlack);
   font-weight: 100;
   text-transform: capitalize;
   opacity: 1; /* Firefox */
@@ -72,15 +71,22 @@ input[type="number"] {
 
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: var(--white);
+  color: var(--lightBlack);
   font-weight: 100;
   text-transform: capitalize;
 }
 
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: var(--white);
+  color: var(--lightBlack);
   font-weight: 100;
+  text-transform: capitalize;
+}
+
+label {
+  color: var(--black);
+  font-size: 12px;
+  text-align: left;
   text-transform: capitalize;
 }
 
@@ -104,10 +110,36 @@ input[type="number"] {
   text-align: center;
 }
 
+.text-left {
+  text-align: left;
+}
+
+.flex {
+  flex: 1;
+}
+
 .row {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.row-col {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+  .row-col {
+    flex-direction: column;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
 }
 
 /* Typograpthy */
@@ -153,6 +185,12 @@ input[type="number"] {
   max-width: 300px;
 }
 
+.image-wrapper-400 {
+  width: 100%;
+  max-width: 400px;
+  flex: 1;
+}
+
 .home-image {
   width: 100%;
   object-fit: contain;
@@ -182,6 +220,12 @@ input[type="number"] {
   right: 0;
   background-color: yellow;
   z-index: 10;
+}
+
+@media screen and (max-width: 600px) {
+  .form {
+    margin-top: 1rem;
+  }
 }
 
 /* COMPONENTS */
@@ -244,3 +288,9 @@ button:hover {
 }
 
 /* Input */
+.input {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  background-color: var(--lightGrey);
+}
