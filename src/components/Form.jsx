@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "./Button";
 import { Input } from "./Input";
-import { Label } from "./Label";
+import { InputButton } from "./InputButton";
 
 export const Form = () => {
   const [inputTitle, setInputTitle] = useState("");
@@ -23,7 +23,7 @@ export const Form = () => {
           type={"number"}
           onChange={(e) => setInputPrice(e.target.value)}
         />
-        <input type="file" />
+        <InputButton />
         <div className="btn-container">
           <Button title="add item" onClick={null} />
         </div>

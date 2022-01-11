@@ -12,10 +12,10 @@ export const Modal = () => {
         </div>
         <div className="flex">
           <div className="padding-2">
-            <div className="content-title text-left">
+            <div className="content-title text-center">
               <h2>Hello Shopper</h2>
             </div>
-            <div className="text-left ">
+            <div className="text-center">
               <p>Please add your shopping item</p>
             </div>
           </div>

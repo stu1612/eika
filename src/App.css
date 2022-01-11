@@ -123,6 +123,10 @@ label {
   padding: 2rem 0;
 }
 
+.padding-1 {
+  padding: 1rem 0;
+}
+
 @media screen and (max-width: 768px) {
   .flex {
     width: 70%;
@@ -310,4 +314,15 @@ button:hover {
   padding: 0.5rem 1rem;
   border-radius: var(--radius);
   background-color: var(--lightGrey);
+}
+
+/* InputButton */
+.input-button {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.input-button span {
+  margin-left: 1rem;
 }
