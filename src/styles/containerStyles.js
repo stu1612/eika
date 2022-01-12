@@ -30,3 +30,17 @@ export const RowToColStyle = styled(RowStyle)`
     width: 100%;
   }
 `;
+
+export const TextWrapperStyle = styled.div`
+  text-align: ${(props) => props.textAlign || "center"};
+  width: ${(props) => props.wrapperWidth || null};
+  max-width: ${(props) => props.wrapperMaxWidth || null};
+  /* width: 80%;
+  max-width: 600px; */
+`;
+
+// export const ContentDescriptionStyle = styled.div`
+//   width: 80%;
+//   max-width: 600px;
+//   text-align: ${(props) => props.textAlign || "center"};
+// `;

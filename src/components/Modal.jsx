@@ -6,6 +6,7 @@ import {
   GridContainerStyle,
   ImageWrapperStyle,
   RowToColStyle,
+  TextWrapperStyle,
 } from "../styles/containerStyles";
 
 export const Modal = () => {
@@ -17,12 +18,12 @@ export const Modal = () => {
         </ImageWrapperStyle>
         <div className="flex">
           <div className="padding-2">
-            <div className="content-title text-center">
+            <TextWrapperStyle>
               <h2>Hello Shopper</h2>
-            </div>
-            <div className="text-center">
+            </TextWrapperStyle>
+            <TextWrapperStyle>
               <p>Please add your shopping item</p>
-            </div>
+            </TextWrapperStyle>
           </div>
 
           <Form />

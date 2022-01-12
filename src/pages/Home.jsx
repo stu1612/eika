@@ -5,6 +5,7 @@ import { Button } from "../components/Button";
 import {
   GridContainerStyle,
   ImageWrapperStyle,
+  TextWrapperStyle,
 } from "../styles/containerStyles";
 
 export const Home = () => {
@@ -18,16 +19,20 @@ export const Home = () => {
       <ImageWrapperStyle wrapperWidth="300px">
         <img src={img} alt="online shopping" className="img-100" />
       </ImageWrapperStyle>
-      <div className="content-title">
+      <TextWrapperStyle>
         <h1>Shopping List</h1>
-      </div>
-      <div className="content-description text-justify">
+      </TextWrapperStyle>
+      <TextWrapperStyle
+        textAlign="justify"
+        wrapperWidth="80%"
+        wrapperMaxWidth="600px"
+      >
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
           corrupti quibusdam aliquam possimus error molestiae sunt nisi
           accusantium dolore vero.
         </p>
-      </div>
+      </TextWrapperStyle>
       <div className="btn-container">
         <Button title="add item" onClick={openModal} />
       </div>

@@ -97,4 +97,26 @@ label {
   object-fit: contain;
 }
 
+.normal,
+.light {
+  margin: 0 1rem;
+  font-size: 12px;
+}
+
+.light {
+  color: var(--light);
+  position: relative;
+  cursor: pointer;
+}
+
+.light::after {
+  content: "";
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  background: var(--light);
+  bottom: -2px;
+  left: 0;
+}
+
 `;
