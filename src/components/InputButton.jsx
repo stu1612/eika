@@ -1,21 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
+import styled from "styled-components";
 
-export const InputButton = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-
+export const InputButton = ({ onChange, htmlID, type }) => {
   return (
-    <div className="input-button">
+    <>
       <input
-        type="file"
+        type={type}
         accept="image/*"
-        id="select-image"
+        id={htmlID}
         style={{ display: "none" }}
-        onChange={(e) => setSelectedImage(e.target.files[0])}
+        onChange={onChange}
       />
-      <label htmlFor="select-image" className="button">
-        Upload Image
-      </label>
-      <span>(Image is optional)</span>
-    </div>
+      <LabelStyle
+        htmlFor={htmlID}
+        className="button"
+        bgcolor="#ffcd00"
+        color="#000"
+        hoverbgcolor="#DEB300"
+      >
+        <p>
+          Upload Image<span>(optional)</span>
+        </p>
+      </LabelStyle>
+    </>
   );
 };
+
+const LabelStyle = styled.label`
+  background-color: ${(props) => props.bgcolor};
+  color: ${(props) => props.color};
+
+  &:hover {
+    background-color: ${(props) => props.hoverbgcolor};
+  }
+`;

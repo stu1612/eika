@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "../components/Button";
 import { TaskItem } from "../components/TaskItem";
 import {
+  BtnContainerStyle,
   GridContainerStyle,
   TextWrapperStyle,
 } from "../styles/containerStyles";
@@ -23,9 +24,9 @@ export const Tasks = () => {
         <TaskItem />
         <TaskItem />
       </div>
-      <div className="btn-container">
+      <BtnContainerStyle>
         <Button title="add item" onClick={null} />
-      </div>
+      </BtnContainerStyle>
       <TextWrapperStyle wrapperWidth="80%" wrapperMaxWidth="600px">
         <span className="light">View completed items</span>
       </TextWrapperStyle>

@@ -43,6 +43,7 @@ export const FormContainerStyle = styled.div`
   background: var(--white);
   padding: 1rem;
   border-radius: var(--radius);
+  filter: drop-shadow(2px 3px 8px var(--grey));
   @media ${devices.tablet} {
     padding: 3rem;
     width: 80%;
@@ -53,12 +54,10 @@ export const TextWrapperStyle = styled.div`
   text-align: ${(props) => props.textAlign || "center"};
   width: ${(props) => props.wrapperWidth || null};
   max-width: ${(props) => props.wrapperMaxWidth || null};
-  /* width: 80%;
-  max-width: 600px; */
 `;
 
-// export const ContentDescriptionStyle = styled.div`
-//   width: 80%;
-//   max-width: 600px;
-//   text-align: ${(props) => props.textAlign || "center"};
-// `;
+export const BtnContainerStyle = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: ${(props) => props.margin || null};
+`;

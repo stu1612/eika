@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 import { Form } from "./Form";
 import img from "../assets/images/task-img.png";
 import {
@@ -11,13 +12,17 @@ export const Modal = () => {
   return (
     <ModalContainerStyle>
       <FormContainerStyle>
-        <div className="flex">
+        <Flex>
           <ImageWrapperStyle wrapperWidth="400px">
             <img src={img} alt="create task online" className="img-100" />
           </ImageWrapperStyle>
           <Form />
-        </div>
+        </Flex>
       </FormContainerStyle>
     </ModalContainerStyle>
   );
 };
+
+const Flex = styled.div`
+  flex: 1;
+`;

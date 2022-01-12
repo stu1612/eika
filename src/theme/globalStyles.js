@@ -13,6 +13,7 @@ html {
   --brand-blue: #0058ab;
   --brand-blue-darker: #014788;
   --brand-yellow: #ffcd00;
+  --brand-yellow-darker: #DEB300;
   --white: #fff;
   --black: #000;
   --lightBlack: rgb(58, 58, 58);
@@ -64,6 +65,10 @@ input[type="number"] {
   font-size: var(--font-text);
 }
 
+input:focus {
+  filter:drop-shadow(2px 2px 3px var(--lightGrey));
+}
+
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: var(--lightBlack);
@@ -96,6 +101,38 @@ label {
 .img-100 {
   width: 100%;
   object-fit: contain;
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-transform: capitalize;
+  text-align: center;
+  word-spacing: normal;
+  font-weight: 100;
+  font-size: var(--font-text);
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-blue {
+  background-color: var(--brand-blue);
+  color: var(--white);
+}
+
+.btn-blue:hover {
+  background-color: var(--brand-blue-darker);
+}
+
+.btn-yellow {
+  background-color: var(--brand-yellow);
+  color: var(--black);
+}
+
+.btn-yellow:hover {
+  background-color: var(--brand-yellow-darker);
+
 }
 
 .normal,

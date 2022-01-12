@@ -21,5 +21,7 @@ const InputStyle = styled.input`
   margin-bottom: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: var(--radius);
-  background-color: var(--lightGrey);
+  background-color: var(--lightWhiteGrey);
+  width: 100%;
+  transition: all all 0.3s ease-out;
 `;

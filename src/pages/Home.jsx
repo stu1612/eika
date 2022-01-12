@@ -3,6 +3,7 @@ import { Modal } from "../components/Modal";
 import img from "../assets/images/header-img.png";
 import { Button } from "../components/Button";
 import {
+  BtnContainerStyle,
   GridContainerStyle,
   ImageWrapperStyle,
   TextWrapperStyle,
@@ -34,9 +35,9 @@ export const Home = () => {
             sunt nisi accusantium dolore vero.
           </p>
         </TextWrapperStyle>
-        <div className="btn-container">
+        <BtnContainerStyle>
           <Button title="add item" onClick={openModal} />
-        </div>
+        </BtnContainerStyle>
       </GridContainerStyle>
       {isModal ? <Modal /> : null}
     </>
