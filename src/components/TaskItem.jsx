@@ -1,9 +1,10 @@
 import React from "react";
 import img from "../assets/images/logo.png";
+import { RowStyle } from "../styles/containerStyles";
 
 export const TaskItem = () => {
   return (
-    <div className="row">
+    <RowStyle>
       <div className="checkbox">
         <input type="checkbox" />
       </div>
@@ -18,6 +19,6 @@ export const TaskItem = () => {
           <img src={img} alt="logo" className="task-image" />
         </div>
       </div>
-    </div>
+    </RowStyle>
   );
 };

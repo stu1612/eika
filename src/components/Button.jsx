@@ -18,4 +18,8 @@ const StyledButton = styled.button`
   font-size: var(--font-text);
   display: inline-block;
   transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: var(--brand-blue-darker);
+  }
 `;

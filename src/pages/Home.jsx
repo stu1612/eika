@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import { Modal } from "../components/Modal";
 import img from "../assets/images/header-img.png";
 import { Button } from "../components/Button";
+import {
+  GridContainerStyle,
+  ImageWrapperStyle,
+} from "../styles/containerStyles";
 
 export const Home = () => {
   const [modal, setModal] = useState(false);
@@ -10,10 +14,10 @@ export const Home = () => {
     console.log("hi");
   };
   return (
-    <section className="grid-container" id="home">
-      <div className="image-wrapper">
-        <img src={img} alt="online task list" className="home-image" />
-      </div>
+    <GridContainerStyle id="home">
+      <ImageWrapperStyle wrapperWidth="300px">
+        <img src={img} alt="online shopping" className="img-100" />
+      </ImageWrapperStyle>
       <div className="content-title">
         <h1>Shopping List</h1>
       </div>
@@ -28,6 +32,6 @@ export const Home = () => {
         <Button title="add item" onClick={openModal} />
       </div>
       {modal ? <Modal /> : null}
-    </section>
+    </GridContainerStyle>
   );
 };

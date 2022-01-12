@@ -1,10 +1,11 @@
 import React from "react";
 import { Button } from "../components/Button";
 import { TaskItem } from "../components/TaskItem";
+import { GridContainerStyle } from "../styles/containerStyles";
 
 export const Tasks = () => {
   return (
-    <section className="grid-container" id="tasks">
+    <GridContainerStyle>
       <div className="content-title">
         <h2>Shopping List</h2>
       </div>
@@ -25,6 +26,6 @@ export const Tasks = () => {
       <div className="content-description text-center">
         <span className="light">View completed items</span>
       </div>
-    </section>
+    </GridContainerStyle>
   );
 };

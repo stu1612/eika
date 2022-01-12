@@ -41,7 +41,7 @@ import "./App.css";
 // when user navigates from index.js a truthy statement will check its status and will save to LS so that the app loads to list content when app is mounted
 
 // Styling
-// App.css to style classes
+// App.css to style classes > when styling completed will switch to styled components to make it easier to re-check styling and update for future changes
 
 // Components
 // <Form />
@@ -52,12 +52,10 @@ import "./App.css";
 
 // Extra - will test cloud storage when all funcitonality is completed in jsx
 
-function App() {
+export const App = () => {
   return (
     <div className="App">
       <Navigation />
     </div>
   );
-}
-
-export default App;
+};

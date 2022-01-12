@@ -2,14 +2,19 @@ import React from "react";
 // import { Link } from "react-router-dom";
 import { Form } from "./Form";
 import img from "../assets/images/task-img.png";
+import {
+  GridContainerStyle,
+  ImageWrapperStyle,
+  RowToColStyle,
+} from "../styles/containerStyles";
 
 export const Modal = () => {
   return (
-    <div className="grid-container">
-      <div className="row row-col">
-        <div className="image-wrapper-400">
-          <img src={img} alt="online task list" className="home-image" />
-        </div>
+    <GridContainerStyle>
+      <RowToColStyle>
+        <ImageWrapperStyle wrapperWidth="400px">
+          <img src={img} alt="create task online" className="img-100" />
+        </ImageWrapperStyle>
         <div className="flex">
           <div className="padding-2">
             <div className="content-title text-center">
@@ -22,7 +27,7 @@ export const Modal = () => {
 
           <Form />
         </div>
-      </div>
-    </div>
+      </RowToColStyle>
+    </GridContainerStyle>
   );
 };

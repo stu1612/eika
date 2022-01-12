@@ -7,9 +7,9 @@ import { Modal } from "./Modal";
 export const Navigation = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/modal" element={<Modal />} />
-      <Route path="tasks" element={<Tasks />} />
+      {/* <Route path="/" element={<Home />} /> */}
+      <Route path="/" element={<Modal />} />
+      {/* <Route path="tasks" element={<Tasks />} /> */}
     </Routes>
   );
 };
