@@ -7,7 +7,7 @@ export const Home = () => {
   const [modal, setModal] = useState(false);
 
   const openModal = () => {
-    console.log("hello");
+    console.log("hi");
   };
   return (
     <section className="grid-container" id="home">
