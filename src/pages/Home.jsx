@@ -9,34 +9,36 @@ import {
 } from "../styles/containerStyles";
 
 export const Home = () => {
-  const [modal, setModal] = useState(false);
+  const [isModal, setIsModal] = useState(false);
 
   const openModal = () => {
-    console.log("hi");
+    setIsModal(true);
   };
   return (
-    <GridContainerStyle id="home">
-      <ImageWrapperStyle wrapperWidth="300px">
-        <img src={img} alt="online shopping" className="img-100" />
-      </ImageWrapperStyle>
-      <TextWrapperStyle>
-        <h1>Shopping List</h1>
-      </TextWrapperStyle>
-      <TextWrapperStyle
-        textAlign="justify"
-        wrapperWidth="80%"
-        wrapperMaxWidth="600px"
-      >
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
-          corrupti quibusdam aliquam possimus error molestiae sunt nisi
-          accusantium dolore vero.
-        </p>
-      </TextWrapperStyle>
-      <div className="btn-container">
-        <Button title="add item" onClick={openModal} />
-      </div>
-      {modal ? <Modal /> : null}
-    </GridContainerStyle>
+    <>
+      <GridContainerStyle id="home">
+        <ImageWrapperStyle wrapperWidth="300px">
+          <img src={img} alt="online shopping" className="img-100" />
+        </ImageWrapperStyle>
+        <TextWrapperStyle>
+          <h1>Shopping List</h1>
+        </TextWrapperStyle>
+        <TextWrapperStyle
+          textAlign="justify"
+          wrapperWidth="80%"
+          wrapperMaxWidth="600px"
+        >
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+            Voluptatibus corrupti quibusdam aliquam possimus error molestiae
+            sunt nisi accusantium dolore vero.
+          </p>
+        </TextWrapperStyle>
+        <div className="btn-container">
+          <Button title="add item" onClick={openModal} />
+        </div>
+      </GridContainerStyle>
+      {isModal ? <Modal /> : null}
+    </>
   );
 };

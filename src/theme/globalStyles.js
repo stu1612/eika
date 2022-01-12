@@ -18,6 +18,7 @@ html {
   --lightBlack: rgb(58, 58, 58);
   --grey: rgb(136, 135, 135);
   --lightGrey: rgb(199, 199, 199);
+  --lightWhiteGrey: rgb(230, 230, 230);
   --font-title: 25px;
   --font-text: 14px;
   --radius: 4px;

@@ -23,11 +23,29 @@ export const RowStyle = styled.div`
   align-items: center;
 `;
 
-export const RowToColStyle = styled(RowStyle)`
+export const ModalContainerStyle = styled.div`
+  position: absolute;
+  height: 100%;
+  background-color: var(--lightWhiteGrey);
+  z-index: 10;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const FormContainerStyle = styled.div`
+  display: flex;
+  align-items: center;
   flex-direction: column;
+  width: 90%;
+  background: var(--white);
+  padding: 1rem;
+  border-radius: var(--radius);
   @media ${devices.tablet} {
-    flex-direction: row;
-    width: 100%;
+    padding: 3rem;
+    width: 80%;
   }
 `;
 

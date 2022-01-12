@@ -9,7 +9,7 @@ export const Navigation = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       {/* <Route path="/" element={<Modal />} /> */}
-      {/* <Route path="tasks" element={<Tasks />} /> */}
+      <Route path="tasks" element={<Tasks />} />
     </Routes>
   );
 };
