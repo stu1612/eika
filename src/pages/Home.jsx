@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import { Modal } from "../components/Modal";
-import img from "../assets/images/header-img.png";
-import { Button } from "../components/Button";
+// styles
 import {
-  BtnContainerStyle,
+  FlexStyle,
   GridContainerStyle,
   ImageWrapperStyle,
   TextWrapperStyle,
 } from "../styles/containerStyles";
+// components
+import { Modal } from "../components/Modal";
+import { Button } from "../components/Button";
+// images
+import img from "../assets/images/header-img.png";
 
 export const Home = () => {
   const [isModal, setIsModal] = useState(false);
@@ -35,9 +38,9 @@ export const Home = () => {
             sunt nisi accusantium dolore vero.
           </p>
         </TextWrapperStyle>
-        <BtnContainerStyle>
+        <FlexStyle display="flex" justifyContent="center">
           <Button title="add item" onClick={openModal} />
-        </BtnContainerStyle>
+        </FlexStyle>
       </GridContainerStyle>
       {isModal ? <Modal /> : null}
     </>

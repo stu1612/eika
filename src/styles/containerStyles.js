@@ -17,12 +17,6 @@ export const ImageWrapperStyle = styled.div`
   flex: 1;
 `;
 
-export const RowStyle = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-
 export const ModalContainerStyle = styled.div`
   position: absolute;
   height: 100%;
@@ -59,5 +53,14 @@ export const TextWrapperStyle = styled.div`
 export const BtnContainerStyle = styled.div`
   display: flex;
   justify-content: center;
+  margin: ${(props) => props.margin || null};
+`;
+
+export const FlexStyle = styled.div`
+  display: ${(props) => props.display || null};
+  flex-direction: ${(props) => props.flexDirection || null};
+  align-items: ${(props) => props.alignItems || null};
+  justify-content: ${(props) => props.justifyContent || null};
+  flex: ${(props) => props.flex || null};
   margin: ${(props) => props.margin || null};
 `;

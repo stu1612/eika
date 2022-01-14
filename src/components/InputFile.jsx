@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export const InputButton = ({ onChange, htmlID, type }) => {
+export const InputFile = ({ onChange, htmlID, type }) => {
   return (
     <>
       <input

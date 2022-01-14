@@ -1,26 +1,28 @@
 import React from "react";
 import styled from "styled-components";
+// styles
+import { FlexStyle } from "../styles/containerStyles";
+// images
 import img from "../assets/images/logo.png";
-import { RowStyle } from "../styles/containerStyles";
 
 export const TaskItem = () => {
   return (
-    <RowStyle>
+    <FlexStyle display="flex" justifyContent="row" alignItems="center">
       <div className="checkbox">
-        <input type="checkbox" />
+        <input type="checkbox" style={{ backgroundColor: "red" }} />
       </div>
       <TaskContent>
-        <div className="task-content__left">
-          <div className="task-content__items">
+        <FlexStyle display="flex">
+          <FlexStyle display="flex" alignItems="center">
             <p>Item name{","}</p>
             <p>price</p>
-          </div>
-        </div>
+          </FlexStyle>
+        </FlexStyle>
         <div className="task-content__image">
-          <img src={img} alt="logo" className="task-image" />
+          <img src={img} alt="logo" className="img-100" />
         </div>
       </TaskContent>
-    </RowStyle>
+    </FlexStyle>
   );
 };
 
@@ -29,27 +31,17 @@ const TaskContent = styled.div`
   justify-content: space-between;
   width: 100%;
 
-  .task-content__left {
-    display: flex;
+  .checkbox {
+    float: left;
   }
 
-  .task-content__items {
-    display: flex;
-    align-items: center;
-  }
-
-  .task-content__items p {
+  p {
     padding: 0 0.5rem;
   }
 
   .task-content__image {
     height: 50px;
     width: 50px;
-  }
-
-  .task-image {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    display: flex;
   }
 `;

@@ -1,11 +1,13 @@
 import React from "react";
-import { Button } from "../components/Button";
-import { TaskItem } from "../components/TaskItem";
+// styles
 import {
-  BtnContainerStyle,
+  FlexStyle,
   GridContainerStyle,
   TextWrapperStyle,
 } from "../styles/containerStyles";
+// components
+import { Button } from "../components/Button";
+import { TaskList } from "../components/TaskList";
 
 export const Tasks = () => {
   return (
@@ -13,20 +15,17 @@ export const Tasks = () => {
       <TextWrapperStyle>
         <h2>Shopping List</h2>
       </TextWrapperStyle>
-      <div className="task-sortment">
+      <FlexStyle display="flex" flexDirection="row" alignItems="center">
         <p className="normal">Sort by:</p>
         <span className="light">Name</span>
         <span className="light">Price</span>
-      </div>
-
-      <div className="task-list">
-        <TaskItem />
-        <TaskItem />
-        <TaskItem />
-      </div>
-      <BtnContainerStyle>
+      </FlexStyle>
+      {/* Task list renderd all task items */}
+      <TaskList />
+      {/* Task list renderd all task items */}
+      <FlexStyle display="flex" justifyContent="center">
         <Button title="add item" onClick={null} />
-      </BtnContainerStyle>
+      </FlexStyle>
       <TextWrapperStyle wrapperWidth="80%" wrapperMaxWidth="600px">
         <span className="light">View completed items</span>
       </TextWrapperStyle>

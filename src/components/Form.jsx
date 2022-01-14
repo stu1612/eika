@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import styled from "styled-components";
-import { BtnContainerStyle } from "../styles/containerStyles";
+// styles
+import { FlexStyle } from "../styles/containerStyles";
+// components
 import { Button } from "./Button";
 import { Input } from "./Input";
-import { InputButton } from "./InputButton";
+import { InputFile } from "./InputFile";
 
 export const Form = () => {
   const [inputTitle, setInputTitle] = useState("");
@@ -11,7 +12,7 @@ export const Form = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <FormStyle>
+    <FlexStyle display="flex" flexDirection="column">
       <Input
         label={"title"}
         placeholder={"title"}
@@ -26,19 +27,14 @@ export const Form = () => {
         type={"number"}
         onChange={(e) => setInputPrice(e.target.value)}
       />
-      <InputButton
+      <InputFile
         type={"file"}
         htmlID={"select-image"}
         onChange={(e) => setSelectedImage(e.target.files[0])}
       />
-      <BtnContainerStyle margin="1rem">
+      <FlexStyle display="flex" justifyContent="center" margin="1rem">
         <Button title="add item" onClick={null} />
-      </BtnContainerStyle>
-    </FormStyle>
+      </FlexStyle>
+    </FlexStyle>
   );
 };
-
-const FormStyle = styled.form`
-  display: flex;
-  flex-direction: column;
-`;

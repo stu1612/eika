@@ -65,6 +65,10 @@ input[type="number"] {
   font-size: var(--font-text);
 }
 
+input[type="checkbox"] {
+  accent-color: var(--brand-blue);
+}
+
 input:focus {
   filter:drop-shadow(2px 2px 3px var(--lightGrey));
 }
@@ -132,7 +136,6 @@ label {
 
 .btn-yellow:hover {
   background-color: var(--brand-yellow-darker);
-
 }
 
 .normal,
@@ -142,7 +145,7 @@ label {
 }
 
 .light {
-  color: var(--light);
+  color: var(--grey);
   position: relative;
   cursor: pointer;
 }
@@ -152,9 +155,16 @@ label {
   height: 1px;
   width: 100%;
   position: absolute;
-  background: var(--light);
+  background: var(--grey);
   bottom: -2px;
   left: 0;
 }
+
+// old styles 
+
+.input-button span {
+  margin-left: 1rem;
+}
+
 
 `;

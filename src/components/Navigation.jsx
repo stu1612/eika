@@ -6,8 +6,8 @@ import { Tasks } from "../pages/Tasks";
 export const Navigation = () => {
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="tasks" element={<Tasks />} />
+      {/* <Route path="/" element={<Home />} /> */}
+      <Route path="/" element={<Tasks />} />
     </Routes>
   );
 };

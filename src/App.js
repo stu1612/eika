@@ -1,7 +1,6 @@
 import React from "react";
 import { Navigation } from "./components/Navigation";
-
-import "./App.css";
+import { FlexStyle } from "./styles/containerStyles";
 
 // EIKA APP Objectives
 
@@ -54,8 +53,8 @@ import "./App.css";
 
 export const App = () => {
   return (
-    <div className="App">
+    <FlexStyle display="flex" justifyContent="center">
       <Navigation />
-    </div>
+    </FlexStyle>
   );
 };
