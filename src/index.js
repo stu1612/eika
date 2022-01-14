@@ -6,12 +6,15 @@ import { App } from "./App";
 import { GlobalStyle } from "./theme/globalStyles";
 
 import reportWebVitals from "./reportWebVitals";
+import { TaskContextProvider } from "./context/TaskContext";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <GlobalStyle />
-      <App />
+      <TaskContextProvider>
+        <App />
+      </TaskContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

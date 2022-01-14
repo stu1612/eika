@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 // styles
 import {
   FlexStyle,
@@ -11,9 +11,12 @@ import { Modal } from "../components/Modal";
 import { Button } from "../components/Button";
 // images
 import img from "../assets/images/header-img.png";
+// context
+import { TaskContext } from "../context/TaskContext";
 
 export const Home = () => {
   const [isModal, setIsModal] = useState(false);
+  const { name } = useContext(TaskContext);
 
   const openModal = () => {
     setIsModal(true);
@@ -37,6 +40,8 @@ export const Home = () => {
             Voluptatibus corrupti quibusdam aliquam possimus error molestiae
             sunt nisi accusantium dolore vero.
           </p>
+          {/* testing */}
+          <h1>Hello {name}</h1>
         </TextWrapperStyle>
         <FlexStyle display="flex" justifyContent="center">
           <Button title="add item" onClick={openModal} />
