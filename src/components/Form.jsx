@@ -11,6 +11,11 @@ export const Form = () => {
   const [inputPrice, setInputPrice] = useState("0");
   const [selectedImage, setSelectedImage] = useState(null);
 
+  // functions
+
+  // fn - fileHandler()
+  // display the image from inputfile using js file manager
+
   return (
     <FlexStyle display="flex" flexDirection="column">
       <Input

@@ -1,4 +1,6 @@
 import React, { useState, useContext } from "react";
+// router dom
+import { Link } from "react-router-dom";
 // styles
 import {
   FlexStyle,
@@ -16,11 +18,11 @@ import { TaskContext } from "../context/TaskContext";
 
 export const Home = () => {
   const [isModal, setIsModal] = useState(false);
-  const { name } = useContext(TaskContext);
+  const { logUser } = useContext(TaskContext);
 
-  const openModal = () => {
-    setIsModal(true);
-  };
+  // const openModal = () => {
+  //   setIsModal(true);
+  // };
   return (
     <>
       <GridContainerStyle id="home">
@@ -40,11 +42,9 @@ export const Home = () => {
             Voluptatibus corrupti quibusdam aliquam possimus error molestiae
             sunt nisi accusantium dolore vero.
           </p>
-          {/* testing */}
-          <h1>Hello {name}</h1>
         </TextWrapperStyle>
         <FlexStyle display="flex" justifyContent="center">
-          <Button title="add item" onClick={openModal} />
+          <Button title="add item" onClick={logUser} />
         </FlexStyle>
       </GridContainerStyle>
       {isModal ? <Modal /> : null}

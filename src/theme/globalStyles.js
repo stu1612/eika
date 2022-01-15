@@ -63,6 +63,7 @@ input[type="number"] {
   border: 0;
   font-family: inherit;
   font-size: var(--font-text);
+  background: pink
 }
 
 input[type="checkbox"] {
