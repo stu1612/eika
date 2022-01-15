@@ -18,20 +18,8 @@ import React, { createContext, useState } from "react";
 export const TaskContext = createContext();
 
 export const TaskContextProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(() => {
-    const data = localStorage.getItem("token");
-    if (data) {
-      JSON.parse(data);
-    } else {
-      return false;
-    }
-  });
+  const [isLoggedIn, setIsLoggedIn] = useState("");
 
-  //   const logUser = () => {
-  //     navigate("/tasks");
-  //     setIsLoggedIn(true);
-  //     localStorage.setItem("token", JSON.stringify(isLoggedIn));
-  //   };
   return (
     <TaskContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
       {children}

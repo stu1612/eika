@@ -1,7 +1,5 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router";
-// router dom
-// import { Link } from "react-router-dom";
 // styles
 import {
   FlexStyle,
@@ -18,8 +16,8 @@ import img from "../assets/images/header-img.png";
 import { TaskContext } from "../context/TaskContext";
 
 export const Home = () => {
-  const [isModal, setIsModal] = useState(false);
   const { isLoggedIn, setIsLoggedIn } = useContext(TaskContext);
+  const [isModal, setIsModal] = useState(false);
 
   // const openModal = () => {
   //   setIsModal(true);
@@ -28,9 +26,11 @@ export const Home = () => {
   let navigate = useNavigate();
 
   const handleEnterApp = () => {
-    setIsLoggedIn(true);
     navigate("/tasks");
+    setIsLoggedIn("token");
+    localStorage.setItem("token", JSON.stringify(isLoggedIn));
   };
+
   return (
     <>
       <GridContainerStyle id="home">
