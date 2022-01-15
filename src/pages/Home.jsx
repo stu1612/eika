@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router";
 // router dom
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 // styles
 import {
   FlexStyle,
@@ -18,11 +19,18 @@ import { TaskContext } from "../context/TaskContext";
 
 export const Home = () => {
   const [isModal, setIsModal] = useState(false);
-  const { logUser } = useContext(TaskContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(TaskContext);
 
   // const openModal = () => {
   //   setIsModal(true);
   // };
+
+  let navigate = useNavigate();
+
+  const handleEnterApp = () => {
+    setIsLoggedIn(true);
+    navigate("/tasks");
+  };
   return (
     <>
       <GridContainerStyle id="home">
@@ -44,7 +52,7 @@ export const Home = () => {
           </p>
         </TextWrapperStyle>
         <FlexStyle display="flex" justifyContent="center">
-          <Button title="add item" onClick={logUser} />
+          <Button title="add item" onClick={handleEnterApp} />
         </FlexStyle>
       </GridContainerStyle>
       {isModal ? <Modal /> : null}
