@@ -6,11 +6,16 @@ import { TaskItem } from "./TaskItem";
 import { TaskContext } from "../context/TaskContext";
 
 export const TaskList = () => {
-  const { tasksArr } = useContext(TaskContext);
+  const { tasksArr, setTasksArr } = useContext(TaskContext);
   return (
     <ContainerStyle>
       {tasksArr.map((task) => (
-        <TaskItem task={task} key={task.id} />
+        <TaskItem
+          task={task}
+          key={task.id}
+          tasksArr={tasksArr}
+          setTasksArr={setTasksArr}
+        />
       ))}
     </ContainerStyle>
   );
