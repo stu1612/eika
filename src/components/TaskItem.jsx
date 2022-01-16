@@ -2,10 +2,9 @@ import React from "react";
 import styled from "styled-components";
 // styles
 import { FlexStyle } from "../styles/containerStyles";
-// images
-import img from "../assets/images/logo.png";
 
-export const TaskItem = () => {
+export const TaskItem = ({ task }) => {
+  const { title, price, img, isCompleted } = task;
   return (
     <FlexStyle display="flex" justifyContent="row" alignItems="center">
       <div className="checkbox">
@@ -14,8 +13,11 @@ export const TaskItem = () => {
       <TaskContent>
         <FlexStyle display="flex">
           <FlexStyle display="flex" alignItems="center">
-            <p>Item name{","}</p>
-            <p>price</p>
+            <p>
+              {title}
+              {","}
+            </p>
+            <p>{price}</p>
           </FlexStyle>
         </FlexStyle>
         <div className="task-content__image">

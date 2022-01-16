@@ -6,8 +6,11 @@
 // if isLoggedIn ? <Tasks> : <Home>
 
 // fn - addTask()
+// create object containg title, price, image, id, isCompleted
+// add task appends object to item array
 
 // fn - checkTask()
+// check task when completed - add completed style property when isCompleted and return to completed array
 
 // fn - filterTasks()
 // save all data and current completed / unCompleted tasks in LS
@@ -15,15 +18,58 @@
 
 import React, { createContext, useState } from "react";
 
+import img from "../assets/images/logo.png";
+
 export const TaskContext = createContext();
 
 export const TaskContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState("logged in");
   const [isModal, setIsModal] = useState(false);
+  const [tasksArr, setTasksArr] = useState([
+    {
+      id: Math.random() * 1000,
+      title: "Task 1",
+      price: 35,
+      img: img,
+      isCompleted: false,
+    },
+    {
+      id: Math.random() * 1000,
+      title: "Task 2",
+      price: 75,
+      img: img,
+      isCompleted: false,
+    },
+    {
+      id: Math.random() * 1000,
+      title: "Task 3",
+      price: 155,
+      img: img,
+      isCompleted: false,
+    },
+  ]);
+
+  const addTask = ({ title, price, img }) => {
+    const newTask = {
+      id: Math.random() * 1000,
+      title: title,
+      price: price,
+      img: img,
+      isCompleted: false,
+    };
+    setTasksArr([...tasksArr, newTask]);
+  };
 
   return (
     <TaskContext.Provider
-      value={{ isLoggedIn, setIsLoggedIn, isModal, setIsModal }}
+      value={{
+        isLoggedIn,
+        setIsLoggedIn,
+        isModal,
+        setIsModal,
+        tasksArr,
+        setTasksArr,
+      }}
     >
       {children}
     </TaskContext.Provider>
