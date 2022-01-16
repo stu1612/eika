@@ -10,7 +10,7 @@ export const TaskList = () => {
   return (
     <ContainerStyle>
       {tasksArr.map((task) => (
-        <TaskItem task={task} />
+        <TaskItem task={task} key={task.id} />
       ))}
     </ContainerStyle>
   );
