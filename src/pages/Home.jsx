@@ -1,5 +1,4 @@
-import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router";
+import React, { useContext } from "react";
 // styles
 import {
   FlexStyle,
@@ -16,19 +15,11 @@ import img from "../assets/images/header-img.png";
 import { TaskContext } from "../context/TaskContext";
 
 export const Home = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(TaskContext);
-  const [isModal, setIsModal] = useState(false);
+  const { setIsModal, isModal } = useContext(TaskContext);
 
-  // const openModal = () => {
-  //   setIsModal(true);
-  // };
-
-  let navigate = useNavigate();
-
-  const handleEnterApp = () => {
-    navigate("/tasks");
-    setIsLoggedIn("token");
-    localStorage.setItem("token", JSON.stringify(isLoggedIn));
+  // opens modal - when the modal is mounted the app will set LS token to signify logged in
+  const enterAppHandler = () => {
+    setIsModal(true);
   };
 
   return (
@@ -52,7 +43,7 @@ export const Home = () => {
           </p>
         </TextWrapperStyle>
         <FlexStyle display="flex" justifyContent="center">
-          <Button title="add item" onClick={handleEnterApp} />
+          <Button title="add item" onClick={enterAppHandler} />
         </FlexStyle>
       </GridContainerStyle>
       {isModal ? <Modal /> : null}

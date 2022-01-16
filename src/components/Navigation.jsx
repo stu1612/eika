@@ -1,17 +1,15 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { Routes, Route } from "react-router-dom";
 // pages
 import { Home } from "../pages/Home";
 import { Tasks } from "../pages/Tasks";
-// context
-// import { TaskContext } from "../context/TaskContext";
 
 export const Navigation = () => {
-  // const { setIsLoggedIn } = useContext(TaskContext);
-
   let navigate = useNavigate();
 
+  // When app is mounted check if user has logged in
+  // if logged in > navigate to /tasks page else > navigate to /
   useEffect(() => {
     const data = localStorage.getItem("token");
     if (data) {

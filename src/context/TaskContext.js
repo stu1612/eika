@@ -18,10 +18,13 @@ import React, { createContext, useState } from "react";
 export const TaskContext = createContext();
 
 export const TaskContextProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState("logged in");
+  const [isModal, setIsModal] = useState(false);
 
   return (
-    <TaskContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+    <TaskContext.Provider
+      value={{ isLoggedIn, setIsLoggedIn, isModal, setIsModal }}
+    >
       {children}
     </TaskContext.Provider>
   );
