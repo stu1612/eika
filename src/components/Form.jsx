@@ -14,9 +14,9 @@ export const Form = () => {
   const { tasksArr, setTasksArr, setIsModal, isModal } =
     useContext(TaskContext);
 
-  const [selectedImage, setSelectedImage] = useState(null);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
+  const [file, setFile] = useState(null);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -24,17 +24,23 @@ export const Form = () => {
       id: Math.random() * 1000,
       title: title,
       price: price,
-      img: img,
+      img: file,
       isCompleted: false,
     };
     setTasksArr([...tasksArr].concat(newTask));
     setIsModal(!isModal);
   };
 
-  // functions
-
   // fn - fileHandler()
   // display the image from inputfile using js file manager
+  const fileImageHandler = (e) => {
+    console.log(e.target.files[0]);
+    let reader = new FileReader();
+    reader.onload = function (e) {
+      setFile(e.target.result);
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  };
 
   return (
     <FlexStyle display="flex" flexDirection="column">
@@ -55,7 +61,7 @@ export const Form = () => {
       <InputFile
         type={"file"}
         htmlID={"select-image"}
-        onChange={(e) => setSelectedImage(e.target.files[0])}
+        onChange={fileImageHandler}
       />
       <FlexStyle display="flex" justifyContent="center" margin="1rem">
         <Button title="add item" onClick={submitHandler} />
