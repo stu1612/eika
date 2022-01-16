@@ -17,6 +17,7 @@ export const Form = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
   const [file, setFile] = useState(null);
+  const [fileName, setFileName] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -34,12 +35,12 @@ export const Form = () => {
   // fn - fileHandler()
   // display the image from inputfile using js file manager
   const fileImageHandler = (e) => {
-    console.log(e.target.files[0]);
     let reader = new FileReader();
     reader.onload = function (e) {
       setFile(e.target.result);
     };
     reader.readAsDataURL(e.target.files[0]);
+    setFileName(e.target.files[0].name);
   };
 
   return (
@@ -63,6 +64,8 @@ export const Form = () => {
         htmlID={"select-image"}
         onChange={fileImageHandler}
       />
+      <p>{fileName ? fileName : "No image selected"}</p>
+
       <FlexStyle display="flex" justifyContent="center" margin="1rem">
         <Button title="add item" onClick={submitHandler} />
       </FlexStyle>
