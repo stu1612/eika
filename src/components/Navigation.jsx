@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 // pages
 import { Home } from "../pages/Home";
 import { Tasks } from "../pages/Tasks";
+import { PageNotFound } from "../pages/PageNotFound";
 
 export const Navigation = () => {
   let navigate = useNavigate();
@@ -11,12 +12,16 @@ export const Navigation = () => {
   // When app is mounted check if user has logged in
   // if logged in > navigate to /tasks page else > navigate to /
   useEffect(() => {
-    const data = localStorage.getItem("token");
-    if (data) {
-      JSON.parse(data);
-      navigate("/tasks");
-    } else {
-      navigate("/");
+    try {
+      const data = localStorage.getItem("token");
+      if (data) {
+        JSON.parse(data);
+        navigate("/tasks");
+      } else {
+        navigate("/");
+      }
+    } catch {
+      navigate("/pageNotFound");
     }
   }, [navigate]);
 
@@ -24,6 +29,7 @@ export const Navigation = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="tasks" element={<Tasks />} />
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };

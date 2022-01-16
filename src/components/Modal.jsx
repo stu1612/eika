@@ -1,5 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import { useNavigate } from "react-router";
+// npm
+import { AiFillCloseCircle } from "react-icons/ai";
 // styles
 import {
   ImageWrapperStyle,
@@ -35,7 +37,17 @@ export const Modal = () => {
   return (
     <ModalContainerStyle>
       <FormContainerStyle>
-        <p onClick={exitModalHandler}>x</p>
+        <AiFillCloseCircle
+          onClick={exitModalHandler}
+          color="#0058ab"
+          size={28}
+          style={{
+            position: "absolute",
+            top: "10px",
+            left: "10px",
+            cursor: "pointer",
+          }}
+        />
         <FlexStyle flex="1">
           <ImageWrapperStyle wrapperWidth="400px">
             <img src={img} alt="create task online" className="img-100" />
