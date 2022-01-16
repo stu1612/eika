@@ -32,8 +32,6 @@ export const Form = () => {
     setIsModal(!isModal);
   };
 
-  // fn - fileHandler()
-  // display the image from inputfile using js file manager
   const fileImageHandler = (e) => {
     let reader = new FileReader();
     reader.onload = function (e) {

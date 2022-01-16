@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 // styles
 import { FlexStyle } from "../styles/containerStyles";
+// images
+import eikaImage from "../assets/images/logo.png";
 
 export const TaskItem = ({ task }) => {
   const { title, price, img, isCompleted } = task;
@@ -21,7 +23,7 @@ export const TaskItem = ({ task }) => {
           </FlexStyle>
         </FlexStyle>
         <div className="task-content__image">
-          <img src={img} alt="logo" className="img-100" />
+          <img src={img ? img : eikaImage} alt="logo" className="img-100" />
         </div>
       </TaskContent>
     </FlexStyle>
