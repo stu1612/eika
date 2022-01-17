@@ -57,10 +57,6 @@ const TaskContent = styled.div`
   width: 100%;
   opacity: ${(props) => props.opacity || null};
 
-  /* .checkbox {
-    float: left;
-  } */
-
   p {
     padding: 0 0.5rem;
   }

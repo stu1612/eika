@@ -8,26 +8,34 @@ import {
 } from "../styles/containerStyles";
 // components
 import { Button } from "../components/Button";
-// import { TaskList } from "../components/TaskList";
-import { TaskItem } from "../components/TaskItem";
+import { TaskList } from "../components/TaskList";
+// import { TaskItem } from "../components/TaskItem";
 import { Modal } from "../components/Modal";
 // contexts
 import { TaskContext } from "../context/TaskContext";
 
 export const Tasks = () => {
   const { isModal, setIsModal, tasksArr } = useContext(TaskContext);
-  const [filteredArr, setFilteredArr] = useState([]);
+  const [status, setStatus] = useState("current");
+  const [filteredTasks, setFilteredTasks] = useState([]);
 
-  // TEST filter function
   useEffect(() => {
-    setFilteredArr(
-      tasksArr
-        .filter((item) => item.isCompleted === false)
-        .map((itemTask) => {
-          return itemTask;
-        })
-    );
-  }, [tasksArr]);
+    switch (status) {
+      case "completed":
+        setFilteredTasks(tasksArr.filter((item) => item.isCompleted === true));
+        break;
+      case "current":
+        setFilteredTasks(tasksArr.filter((item) => item.isCompleted === false));
+        break;
+      default:
+        setFilteredTasks(tasksArr.filter((item) => item.isCompleted === false));
+        break;
+    }
+  }, [status, tasksArr]);
+
+  const statusHandler = (e) => {
+    setStatus(e.target.value);
+  };
 
   return (
     <>
@@ -41,31 +49,23 @@ export const Tasks = () => {
           <span className="light">Price</span>
         </FlexStyle>
         {/* Task list renderd all task items */}
-        {/* <TaskList /> */}
-        <ContainerStyle>
-          {/* {tasksArr.map((task) => (
-            <TaskItem task={task} key={task.id} />
-          ))} */}
-          {filteredArr.map((task) => (
-            <TaskItem task={task} key={task.id} />
-          ))}
-        </ContainerStyle>
+        <TaskList
+          filteredTasks={filteredTasks}
+          setFilteredTasks={setFilteredTasks}
+        />
         {/* Task list renderd all task items */}
         <FlexStyle display="flex" justifyContent="center">
           <Button title="add item" onClick={() => setIsModal(!isModal)} />
         </FlexStyle>
         <TextWrapperStyle wrapperWidth="80%" wrapperMaxWidth="600px">
-          <span className="light" onClick={filteredCompleteTasks}>
-            View completed items
-          </span>
+          {/* <span className="light">Current Items</span> */}
+          <select onChange={statusHandler}>
+            <option value="current">Current Tasks</option>
+            <option value="completed">Completed Tasks</option>
+          </select>
         </TextWrapperStyle>
       </GridContainerStyle>
       {isModal ? <Modal /> : null}
     </>
   );
 };
-
-const ContainerStyle = styled.div`
-  width: 100%;
-  max-width: 550px;
-`;
