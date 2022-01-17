@@ -35,6 +35,31 @@ export const Tasks = () => {
     setStatus(e.target.value);
   };
 
+  const sortTasksByPrice = () => {
+    //copy array
+    const newArr = [...filteredTasks];
+    // sort copied array by lowest price value first
+    newArr.sort((a, b) => {
+      return a.price - b.price;
+    });
+    // set new state of array
+    setFilteredTasks(newArr);
+  };
+
+  const sortTasksByName = () => {
+    const newNameArr = [...filteredTasks];
+    newNameArr.sort((a, b) => {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    });
+    setFilteredTasks(newNameArr);
+  };
+
   return (
     <>
       <GridContainerStyle>
@@ -43,8 +68,12 @@ export const Tasks = () => {
         </TextWrapperStyle>
         <FlexStyle display="flex" flexDirection="row" alignItems="center">
           <p className="normal">Sort by:</p>
-          <span className="light">Name</span>
-          <span className="light">Price</span>
+          <span className="light" onClick={sortTasksByName}>
+            Name
+          </span>
+          <span className="light" onClick={sortTasksByPrice}>
+            Price
+          </span>
         </FlexStyle>
         {/* ---- */}
         <TaskList

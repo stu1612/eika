@@ -28,22 +28,22 @@ export const TaskContextProvider = ({ children }) => {
   const [tasksArr, setTasksArr] = useState([
     {
       id: Math.random() * 1000,
-      title: "Task 1",
+      title: "hello",
       price: 35,
       img: img,
       isCompleted: false,
     },
     {
       id: Math.random() * 1000,
-      title: "Task 2",
+      title: "abihg",
       price: 75,
       img: img,
       isCompleted: false,
     },
     {
       id: Math.random() * 1000,
-      title: "Task 3",
-      price: 155,
+      title: "eco",
+      price: 5,
       img: img,
       isCompleted: false,
     },
