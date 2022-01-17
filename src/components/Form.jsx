@@ -8,11 +8,8 @@ import { InputFile } from "./InputFile";
 // contexts
 import { TaskContext } from "../context/TaskContext";
 
-import img from "../assets/images/logo.png";
-
 export const Form = () => {
-  const { tasksArr, setTasksArr, setIsModal, isModal } =
-    useContext(TaskContext);
+  const { setIsModal, isModal, addTask } = useContext(TaskContext);
 
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState(0);
@@ -21,22 +18,13 @@ export const Form = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    const newTask = {
-      id: Math.random() * 1000,
-      title: title,
-      price: price,
-      img: file,
-      isCompleted: false,
-    };
-    setTasksArr([...tasksArr].concat(newTask));
+    addTask(title, price, file);
     setIsModal(!isModal);
   };
 
-  const fileImageHandler = (e) => {
+  const fileChangeHandler = (e) => {
     let reader = new FileReader();
-    reader.onload = function (e) {
-      setFile(e.target.result);
-    };
+    reader.onload = (e) => setFile(e.target.result);
     reader.readAsDataURL(e.target.files[0]);
     setFileName(e.target.files[0].name);
   };
@@ -60,7 +48,7 @@ export const Form = () => {
       <InputFile
         type={"file"}
         htmlID={"select-image"}
-        onChange={fileImageHandler}
+        onChange={fileChangeHandler}
       />
       <p>{fileName ? fileName : "No image selected"}</p>
 

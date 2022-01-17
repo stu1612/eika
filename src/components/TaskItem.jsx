@@ -8,27 +8,17 @@ import eikaImage from "../assets/images/logo.png";
 import { TaskContext } from "../context/TaskContext";
 
 export const TaskItem = ({ task }) => {
-  const { setTasksArr, tasksArr } = useContext(TaskContext);
+  const { completeTask } = useContext(TaskContext);
   const { title, price, img, isCompleted, id } = task;
 
-  const completeHandler = () => {
-    setTasksArr(
-      tasksArr.map((item) => {
-        if (item.id === id) {
-          return {
-            ...item,
-            isCompleted: !item.isCompleted,
-          };
-        }
-        return item;
-      })
-    );
+  const completeTaskHandler = () => {
+    completeTask(id);
   };
 
   return (
     <FlexStyle display="flex" justifyContent="row" alignItems="center">
       <div>
-        <input type="checkbox" onClick={completeHandler} />
+        <input type="checkbox" onClick={completeTaskHandler} />
       </div>
       <TaskContent opacity={isCompleted ? "0.5" : null}>
         <FlexStyle display="flex">

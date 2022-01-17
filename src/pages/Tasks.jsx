@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import styled from "styled-components";
 // styles
 import {
   FlexStyle,
@@ -9,7 +8,6 @@ import {
 // components
 import { Button } from "../components/Button";
 import { TaskList } from "../components/TaskList";
-// import { TaskItem } from "../components/TaskItem";
 import { Modal } from "../components/Modal";
 // contexts
 import { TaskContext } from "../context/TaskContext";
@@ -48,17 +46,16 @@ export const Tasks = () => {
           <span className="light">Name</span>
           <span className="light">Price</span>
         </FlexStyle>
-        {/* Task list renderd all task items */}
+        {/* ---- */}
         <TaskList
           filteredTasks={filteredTasks}
           setFilteredTasks={setFilteredTasks}
         />
-        {/* Task list renderd all task items */}
+        {/* ---- */}
         <FlexStyle display="flex" justifyContent="center">
           <Button title="add item" onClick={() => setIsModal(!isModal)} />
         </FlexStyle>
         <TextWrapperStyle wrapperWidth="80%" wrapperMaxWidth="600px">
-          {/* <span className="light">Current Items</span> */}
           <select onChange={statusHandler}>
             <option value="current">Current Tasks</option>
             <option value="completed">Completed Tasks</option>

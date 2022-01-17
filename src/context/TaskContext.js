@@ -25,7 +25,6 @@ export const TaskContext = createContext();
 export const TaskContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState("logged in");
   const [isModal, setIsModal] = useState(false);
-
   const [tasksArr, setTasksArr] = useState([
     {
       id: Math.random() * 1000,
@@ -50,6 +49,31 @@ export const TaskContextProvider = ({ children }) => {
     },
   ]);
 
+  const addTask = (title, price, file) => {
+    const newTask = {
+      id: Math.random() * 1000,
+      title: title,
+      price: price,
+      img: file,
+      isCompleted: false,
+    };
+    setTasksArr([...tasksArr].concat(newTask));
+  };
+
+  const completeTask = (id) => {
+    setTasksArr(
+      tasksArr.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            isCompleted: !item.isCompleted,
+          };
+        }
+        return item;
+      })
+    );
+  };
+
   return (
     <TaskContext.Provider
       value={{
@@ -59,6 +83,8 @@ export const TaskContextProvider = ({ children }) => {
         setIsModal,
         tasksArr,
         setTasksArr,
+        addTask,
+        completeTask,
       }}
     >
       {children}

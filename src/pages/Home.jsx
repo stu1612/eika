@@ -17,8 +17,7 @@ import { TaskContext } from "../context/TaskContext";
 export const Home = () => {
   const { setIsModal, isModal } = useContext(TaskContext);
 
-  // opens modal - when the modal is mounted the app will set LS token to signify logged in
-  const enterAppHandler = () => {
+  const loginHandler = () => {
     setIsModal(true);
   };
 
@@ -43,7 +42,7 @@ export const Home = () => {
           </p>
         </TextWrapperStyle>
         <FlexStyle display="flex" justifyContent="center">
-          <Button title="add item" onClick={enterAppHandler} />
+          <Button title="add item" onClick={loginHandler} />
         </FlexStyle>
       </GridContainerStyle>
       {isModal ? <Modal /> : null}
