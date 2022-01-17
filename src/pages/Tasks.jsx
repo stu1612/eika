@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styled from "styled-components";
 // styles
 import {
@@ -16,6 +16,19 @@ import { TaskContext } from "../context/TaskContext";
 
 export const Tasks = () => {
   const { isModal, setIsModal, tasksArr } = useContext(TaskContext);
+  const [filteredArr, setFilteredArr] = useState([]);
+
+  // TEST filter function
+  useEffect(() => {
+    setFilteredArr(
+      tasksArr
+        .filter((item) => item.isCompleted === false)
+        .map((itemTask) => {
+          return itemTask;
+        })
+    );
+  }, [tasksArr]);
+
   return (
     <>
       <GridContainerStyle>
@@ -30,7 +43,10 @@ export const Tasks = () => {
         {/* Task list renderd all task items */}
         {/* <TaskList /> */}
         <ContainerStyle>
-          {tasksArr.map((task) => (
+          {/* {tasksArr.map((task) => (
+            <TaskItem task={task} key={task.id} />
+          ))} */}
+          {filteredArr.map((task) => (
             <TaskItem task={task} key={task.id} />
           ))}
         </ContainerStyle>
@@ -39,7 +55,9 @@ export const Tasks = () => {
           <Button title="add item" onClick={() => setIsModal(!isModal)} />
         </FlexStyle>
         <TextWrapperStyle wrapperWidth="80%" wrapperMaxWidth="600px">
-          <span className="light">View completed items</span>
+          <span className="light" onClick={filteredCompleteTasks}>
+            View completed items
+          </span>
         </TextWrapperStyle>
       </GridContainerStyle>
       {isModal ? <Modal /> : null}
