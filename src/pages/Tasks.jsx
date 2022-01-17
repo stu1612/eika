@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import styled from "styled-components";
 // styles
 import {
   FlexStyle,
@@ -7,13 +8,14 @@ import {
 } from "../styles/containerStyles";
 // components
 import { Button } from "../components/Button";
-import { TaskList } from "../components/TaskList";
+// import { TaskList } from "../components/TaskList";
+import { TaskItem } from "../components/TaskItem";
 import { Modal } from "../components/Modal";
 // contexts
 import { TaskContext } from "../context/TaskContext";
 
 export const Tasks = () => {
-  const { isModal, setIsModal } = useContext(TaskContext);
+  const { isModal, setIsModal, tasksArr } = useContext(TaskContext);
   return (
     <>
       <GridContainerStyle>
@@ -26,7 +28,12 @@ export const Tasks = () => {
           <span className="light">Price</span>
         </FlexStyle>
         {/* Task list renderd all task items */}
-        <TaskList />
+        {/* <TaskList /> */}
+        <ContainerStyle>
+          {tasksArr.map((task) => (
+            <TaskItem task={task} key={task.id} />
+          ))}
+        </ContainerStyle>
         {/* Task list renderd all task items */}
         <FlexStyle display="flex" justifyContent="center">
           <Button title="add item" onClick={() => setIsModal(!isModal)} />
@@ -39,3 +46,8 @@ export const Tasks = () => {
     </>
   );
 };
+
+const ContainerStyle = styled.div`
+  width: 100%;
+  max-width: 550px;
+`;
