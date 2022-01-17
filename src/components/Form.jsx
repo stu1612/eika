@@ -37,6 +37,7 @@ export const Form = () => {
         value={title}
         type={"text"}
         onChange={(e) => setTitle(e.target.value)}
+        required
       />
       <Input
         label={"price"}

@@ -85,7 +85,7 @@ export const Tasks = () => {
           <Button title="add item" onClick={() => setIsModal(!isModal)} />
         </FlexStyle>
         <TextWrapperStyle wrapperWidth="80%" wrapperMaxWidth="600px">
-          <select onChange={statusHandler}>
+          <select onChange={statusHandler} className="light">
             <option value="current">Current Tasks</option>
             <option value="completed">Completed Tasks</option>
           </select>

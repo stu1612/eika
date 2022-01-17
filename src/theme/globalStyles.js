@@ -59,7 +59,8 @@ a {
 }
 
 input[type="text"],
-input[type="number"] {
+input[type="number"],
+select {
   border: 0;
   font-family: inherit;
   font-size: var(--font-text);
@@ -72,6 +73,13 @@ input[type="checkbox"] {
 input:focus {
   filter:drop-shadow(2px 2px 3px var(--lightGrey));
 }
+
+select:focus {
+  outline:0;
+  border:0
+}
+
+
 
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */

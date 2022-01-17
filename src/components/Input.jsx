@@ -1,7 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-export const Input = ({ placeholder, value, type, onChange, label }) => {
+export const Input = ({
+  placeholder,
+  value,
+  type,
+  onChange,
+  label,
+  required,
+}) => {
   return (
     <>
       <label>{label}</label>
@@ -11,7 +18,7 @@ export const Input = ({ placeholder, value, type, onChange, label }) => {
         type={type}
         value={value}
         onChange={onChange}
-        required
+        required={required}
       />
     </>
   );
