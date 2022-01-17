@@ -50,20 +50,6 @@ export const TaskContextProvider = ({ children }) => {
     },
   ]);
 
-  // const completeTask = (id) => {
-  //   setTasksArr(
-  //     tasksArr.map((task) => {
-  //       if (task.id === id) {
-  //         return {
-  //           ...task,
-  //           isCompleted: !task.isCompleted,
-  //         };
-  //       }
-  //       return task;
-  //     })
-  //   );
-  // };
-
   return (
     <TaskContext.Provider
       value={{

@@ -1,32 +1,36 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 // styles
 import { FlexStyle } from "../styles/containerStyles";
 // images
 import eikaImage from "../assets/images/logo.png";
+// contexts
+import { TaskContext } from "../context/TaskContext";
 
-export const TaskItem = ({ task, tasksArr, setTasksArr }) => {
+export const TaskItem = ({ task }) => {
+  const { setTasksArr, tasksArr } = useContext(TaskContext);
   const { title, price, img, isCompleted, id } = task;
 
-  const completeTask = (id) => {
+  const completeHandler = () => {
     setTasksArr(
-      tasksArr.map((task) => {
-        if (task.id === id) {
+      tasksArr.map((item) => {
+        if (item.id === id) {
           return {
-            ...task,
-            isCompleted: !task.isCompleted,
+            ...item,
+            isCompleted: !item.isCompleted,
           };
         }
-        return task;
+        return item;
       })
     );
   };
+
   return (
     <FlexStyle display="flex" justifyContent="row" alignItems="center">
       <div>
-        <input type="checkbox" onClick={completeTask(id)} />
+        <input type="checkbox" onClick={completeHandler} />
       </div>
-      <TaskContent className={`${isCompleted ? "completed" : ""}`}>
+      <TaskContent opacity={isCompleted ? "0.5" : null}>
         <FlexStyle display="flex">
           <FlexStyle display="flex" alignItems="center">
             <p>
@@ -51,10 +55,7 @@ const TaskContent = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-
-  .completed {
-    opacity: 0.5;
-  }
+  opacity: ${(props) => props.opacity || null};
 
   /* .checkbox {
     float: left;
