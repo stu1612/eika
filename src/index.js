@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import "normalize.css";
 import { App } from "./App";
+import { ErrorBoundary } from "./ErrorBoundary";
 import { GlobalStyle } from "./theme/globalStyles";
 
 import reportWebVitals from "./reportWebVitals";
@@ -13,7 +14,9 @@ ReactDOM.render(
     <BrowserRouter>
       <GlobalStyle />
       <TaskContextProvider>
-        <App />
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
       </TaskContextProvider>
     </BrowserRouter>
   </React.StrictMode>,

@@ -80,7 +80,6 @@ select:focus {
 }
 
 
-
 ::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: var(--lightBlack);
