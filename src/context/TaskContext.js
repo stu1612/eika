@@ -16,7 +16,7 @@
 // save all data and current completed / unCompleted tasks in LS
 // a filtered array needs to be getLS on useEffect and setLS on addTask()
 
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 import img from "../assets/images/logo.png";
 
@@ -25,29 +25,39 @@ export const TaskContext = createContext();
 export const TaskContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState("logged in");
   const [isModal, setIsModal] = useState(false);
-  const [tasksArr, setTasksArr] = useState([
-    {
-      id: Math.random() * 1000,
-      title: "hello",
-      price: 35,
-      img: img,
-      isCompleted: false,
-    },
-    {
-      id: Math.random() * 1000,
-      title: "abihg",
-      price: 75,
-      img: img,
-      isCompleted: false,
-    },
-    {
-      id: Math.random() * 1000,
-      title: "eco",
-      price: 5,
-      img: img,
-      isCompleted: false,
-    },
-  ]);
+  const [tasksArr, setTasksArr] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("tasks")) ?? [];
+    } catch {
+      return [];
+    }
+  });
+  // {
+  //   id: Math.random() * 1000,
+  //   title: "hello",
+  //   price: 35,
+  //   img: img,
+  //   isCompleted: false,
+  // },
+  // {
+  //   id: Math.random() * 1000,
+  //   title: "abihg",
+  //   price: 75,
+  //   img: img,
+  //   isCompleted: false,
+  // },
+  // {
+  //   id: Math.random() * 1000,
+  //   title: "eco",
+  //   price: 5,
+  //   img: img,
+  //   isCompleted: false,
+  // },
+  // ]);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasksArr));
+  }, [tasksArr]);
 
   const addTask = (title, price, file) => {
     const newTask = {

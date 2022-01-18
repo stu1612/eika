@@ -26,13 +26,13 @@ export const Modal = () => {
     localStorage.setItem("token", JSON.stringify(isLoggedIn));
   }, [isLoggedIn, setIsLoggedIn]);
 
+  let navigate = useNavigate();
+
   // user can exit modal whilst still remaining logged in on '/tasks' page
   const exitModalHandler = () => {
     setIsModal(!isModal);
     navigate("/tasks");
   };
-
-  let navigate = useNavigate();
 
   return (
     <ModalContainerStyle>

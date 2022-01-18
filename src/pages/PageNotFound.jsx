@@ -5,7 +5,6 @@ import {
   FlexStyle,
   GridContainerStyle,
   ImageWrapperStyle,
-  TextWrapperStyle,
 } from "../styles/containerStyles";
 // components
 import { Button } from "../components/Button";

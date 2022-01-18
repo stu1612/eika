@@ -23,10 +23,11 @@ export const Form = () => {
   };
 
   const fileChangeHandler = (e) => {
+    const fileTarget = e.target.files[0];
     let reader = new FileReader();
     reader.onload = (e) => setFile(e.target.result);
-    reader.readAsDataURL(e.target.files[0]);
-    setFileName(e.target.files[0].name);
+    reader.readAsDataURL(fileTarget);
+    setFileName(fileTarget.name);
   };
 
   return (
