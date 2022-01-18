@@ -11,6 +11,10 @@ import { TaskList } from "../components/TaskList";
 import { Modal } from "../components/Modal";
 // contexts
 import { TaskContext } from "../context/TaskContext";
+// utils
+import { switchStatus } from "../utils/switchUtils";
+import { sortTasksByPrice } from "../utils/sortPriceUtils";
+import { sortTasksByName } from "../utils/sortNameUtils";
 
 export const Tasks = () => {
   const { isModal, setIsModal, tasksArr } = useContext(TaskContext);
@@ -18,46 +22,11 @@ export const Tasks = () => {
   const [filteredTasks, setFilteredTasks] = useState([]);
 
   useEffect(() => {
-    switch (status) {
-      case "completed":
-        setFilteredTasks(tasksArr.filter((item) => item.isCompleted === true));
-        break;
-      case "current":
-        setFilteredTasks(tasksArr.filter((item) => item.isCompleted === false));
-        break;
-      default:
-        setFilteredTasks(tasksArr.filter((item) => item.isCompleted === false));
-        break;
-    }
+    switchStatus(status, tasksArr, setFilteredTasks);
   }, [status, tasksArr]);
 
   const statusHandler = (e) => {
     setStatus(e.target.value);
-  };
-
-  const sortTasksByPrice = () => {
-    //copy array
-    const newArr = [...filteredTasks];
-    // sort copied array by lowest price value first
-    newArr.sort((a, b) => {
-      return a.price - b.price;
-    });
-    // set new state of array
-    setFilteredTasks(newArr);
-  };
-
-  const sortTasksByName = () => {
-    const newNameArr = [...filteredTasks];
-    newNameArr.sort((a, b) => {
-      if (a.title < b.title) {
-        return -1;
-      }
-      if (a.title > b.title) {
-        return 1;
-      }
-      return 0;
-    });
-    setFilteredTasks(newNameArr);
   };
 
   return (
@@ -68,10 +37,16 @@ export const Tasks = () => {
         </TextWrapperStyle>
         <FlexStyle display="flex" flexDirection="row" alignItems="center">
           <p className="normal">Sort by:</p>
-          <span className="light" onClick={sortTasksByName}>
+          <span
+            className="light"
+            onClick={() => sortTasksByName(filteredTasks, setFilteredTasks)}
+          >
             Name
           </span>
-          <span className="light" onClick={sortTasksByPrice}>
+          <span
+            className="light"
+            onClick={() => sortTasksByPrice(filteredTasks, setFilteredTasks)}
+          >
             Price
           </span>
         </FlexStyle>

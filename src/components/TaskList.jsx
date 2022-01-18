@@ -2,31 +2,26 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 // components
 import { TaskItem } from "./TaskItem";
+// services
+import { fetchItems } from "../services/taskServices";
 
 export const TaskList = ({ filteredTasks }) => {
-  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
   useEffect(() => {
-    fetch(filteredTasks)
-      .then((response) => {
-        if (response.ok) {
-          return response;
-        }
-        throw response;
-      })
-      .then((data) => {
-        setData(data);
-        console.log(data);
-      })
-      .catch((err) => {
-        console.log(err, " error");
-        setError(error);
-      })
-      .finally(() => {
+    const loadTasks = async () => {
+      try {
+        const res = await fetchItems(filteredTasks);
+        console.log(res);
+      } catch (e) {
+        setError(e);
+      } finally {
         setLoading(false);
-      });
-  }, [error, filteredTasks]);
+      }
+    };
+    loadTasks();
+  }, [filteredTasks]);
 
   if (loading) return "Loading..";
   if (error) throw error;
