@@ -19,7 +19,6 @@ export const Home = () => {
 
   const loginHandler = () => {
     localStorage.setItem("token", JSON.stringify(isLoggedIn));
-
     setIsModal(true);
   };
 
