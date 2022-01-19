@@ -17,6 +17,7 @@ export const InputFile = ({ onChange, htmlID, type }) => {
         bgcolor="#ffcd00"
         color="#000"
         hoverbgcolor="#DEB300"
+        width="100%"
       >
         <p>
           Upload Image<span>(optional)</span>

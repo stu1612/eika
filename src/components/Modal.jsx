@@ -48,7 +48,13 @@ export const Modal = () => {
             cursor: "pointer",
           }}
         />
-        <FlexStyle flex="1">
+        <FlexStyle
+          flex="1"
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+        >
           <ImageWrapperStyle wrapperWidth="400px">
             <img src={img} alt="create task online" className="img-100" />
           </ImageWrapperStyle>
