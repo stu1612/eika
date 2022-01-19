@@ -19,13 +19,7 @@ import { sortTasksByName } from "../utils/sortNameUtils";
 export const Tasks = () => {
   const { isModal, setIsModal, tasksArr } = useContext(TaskContext);
   const [status, setStatus] = useState("current");
-  const [filteredTasks, setFilteredTasks] = useState(() => {
-    try {
-      return JSON.parse(localStorage.getItem("tasks")) ?? [];
-    } catch {
-      return [];
-    }
-  });
+  const [filteredTasks, setFilteredTasks] = useState([]);
 
   useEffect(() => {
     switchStatus(status, tasksArr, setFilteredTasks);

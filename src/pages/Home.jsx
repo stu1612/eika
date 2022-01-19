@@ -15,9 +15,11 @@ import img from "../assets/images/header-img.png";
 import { TaskContext } from "../context/TaskContext";
 
 export const Home = () => {
-  const { setIsModal, isModal } = useContext(TaskContext);
+  const { setIsModal, isModal, isLoggedIn } = useContext(TaskContext);
 
   const loginHandler = () => {
+    localStorage.setItem("token", JSON.stringify(isLoggedIn));
+
     setIsModal(true);
   };
 

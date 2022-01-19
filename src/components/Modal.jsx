@@ -21,10 +21,10 @@ export const Modal = () => {
     useContext(TaskContext);
 
   // UE sets local storage token to signify user has logged in
-  useEffect(() => {
-    setIsLoggedIn("token");
-    localStorage.setItem("token", JSON.stringify(isLoggedIn));
-  }, [isLoggedIn, setIsLoggedIn]);
+  // useEffect(() => {
+  //   setIsLoggedIn("token");
+  //   localStorage.setItem("token", JSON.stringify(isLoggedIn));
+  // }, [isLoggedIn, setIsLoggedIn]);
 
   let navigate = useNavigate();
 

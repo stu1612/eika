@@ -17,6 +17,7 @@
 // a filtered array needs to be getLS on useEffect and setLS on addTask()
 
 import React, { createContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router";
 
 import img from "../assets/images/logo.png";
 
@@ -32,32 +33,12 @@ export const TaskContextProvider = ({ children }) => {
       return [];
     }
   });
-  // {
-  //   id: Math.random() * 1000,
-  //   title: "hello",
-  //   price: 35,
-  //   img: img,
-  //   isCompleted: false,
-  // },
-  // {
-  //   id: Math.random() * 1000,
-  //   title: "abihg",
-  //   price: 75,
-  //   img: img,
-  //   isCompleted: false,
-  // },
-  // {
-  //   id: Math.random() * 1000,
-  //   title: "eco",
-  //   price: 5,
-  //   img: img,
-  //   isCompleted: false,
-  // },
-  // ]);
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasksArr));
   }, [tasksArr]);
+
+  let navigate = useNavigate();
 
   const addTask = (title, price, file) => {
     const newTask = {
@@ -68,6 +49,7 @@ export const TaskContextProvider = ({ children }) => {
       isCompleted: false,
     };
     setTasksArr([...tasksArr].concat(newTask));
+    navigate("/tasks");
   };
 
   const completeTask = (id) => {

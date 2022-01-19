@@ -13,9 +13,9 @@ export const Navigation = () => {
   // if logged in > navigate to /tasks page else > navigate to /
   useEffect(() => {
     try {
-      const data = localStorage.getItem("token");
-      if (data) {
-        JSON.parse(data);
+      const storageToken = localStorage.getItem("token");
+      if (storageToken) {
+        JSON.parse(storageToken);
         navigate("/tasks");
       } else {
         navigate("/");

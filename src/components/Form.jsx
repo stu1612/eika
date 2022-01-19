@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+
 // styles
 import { FlexStyle } from "../styles/containerStyles";
 // components
@@ -20,6 +21,7 @@ export const Form = () => {
     e.preventDefault();
     addTask(title, price, file);
     setIsModal(!isModal);
+    // navigate("/tasks");
   };
 
   const fileChangeHandler = (e) => {
