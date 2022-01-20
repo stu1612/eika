@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const Input = ({
   placeholder,
   value,
+  name,
   type,
   onChange,
   label,
@@ -14,6 +15,7 @@ export const Input = ({
       <label>{label}</label>
       <InputStyle
         className="input"
+        name={name}
         placeholder={placeholder}
         type={type}
         value={value}

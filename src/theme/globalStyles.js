@@ -66,6 +66,10 @@ select {
   font-size: var(--font-text);
 }
 
+select {
+  background:none;
+}
+
 input[type="checkbox"] {
   accent-color: var(--brand-blue);
 }
@@ -171,6 +175,16 @@ label {
 
 .input-button span {
   margin-left: 1rem;
+} 
+
+.inputStyle {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  background-color: var(--lightWhiteGrey);
+  width: 100%;
+  transition: all all 0.3s ease-out;
+
 }
 
 
