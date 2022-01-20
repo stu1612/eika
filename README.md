@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# EIKA Shopping List
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was created as part of a test assignement to join the Novare Intensive Frontend Course.  As a self taught developer, the aim is to shoecase my knowledge of writing functional React components.  The assignment is to create an app where the user can create their own shopping list by adding a title and price ( and an image if they wish ) which is then stored in local or cloud storage.  Furthermore, the user should be able to check items which have been completed.  Items which are not completed shoould only be shown as well as render when the application is mounted.  However, the user should be able to toggle between completed and non completed tasks.  The user should also be able to sort the list items by price and name.
+
+## Motivation
+
+Besides wanting to impress the instructors at Novare, I also wanted to approach this task trying to keep my thinking and organisation focused on the goals of the app as well as ensuring that to the best of my abilities it doesnt break.  Furthemore, I wanted to have a clear structure to my code where any developer can look at my code, folders and files and get a sense of how it has been built.  The directive given was that I need to show that i have a understanding of React where I am able to filfill the requirments of the upcoming course.  Therefore, to show my abilities I have incorporated React Router V6, Styled Components, React Context for state management, Components, demonstrated passing props, written inline conditional statements, util functions as well demonstrating higher order function methods like map and filter.
+
+## Installation
+```git clone 
 
 ## Available Scripts
 
