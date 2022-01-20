@@ -64,8 +64,8 @@ export const TaskContextProvider = ({ children }) => {
       value={{
         isLoggedIn,
         setIsLoggedIn,
-        isModal,
-        setIsModal,
+        // isModal,
+        // setIsModal,
         tasksArr,
         setTasksArr,
         addTask,
