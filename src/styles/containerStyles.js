@@ -18,7 +18,8 @@ export const ImageWrapperStyle = styled.div`
 `;
 
 export const ModalContainerStyle = styled.div`
-  position: absolute;
+  /* position: absolute; */
+  position: fixed;
   height: 100%;
   background-color: var(--lightWhiteGrey);
   z-index: 10;
@@ -63,4 +64,5 @@ export const FlexStyle = styled.div`
   justify-content: ${(props) => props.justifyContent || null};
   flex: ${(props) => props.flex || null};
   margin: ${(props) => props.margin || null};
+  width: ${(props) => props.width || null};
 `;

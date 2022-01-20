@@ -1,25 +1,5 @@
-// fn - logUser
-// when user onClicks button on home page - they are now logged into the application
-// when the user re-enters the application they will remain on the tasks page
-// no functionality is required to sign out unless added as a EXTRA feature
-// will use isLoggedIn state value as a marker in navigation
-// if isLoggedIn ? <Tasks> : <Home>
-
-// fn - addTask()
-// create object containg title, price, image, id, isCompleted
-// add task appends object to item array
-
-// fn - checkTask()
-// check task when completed - add completed style property when isCompleted and return to completed array
-
-// fn - filterTasks()
-// save all data and current completed / unCompleted tasks in LS
-// a filtered array needs to be getLS on useEffect and setLS on addTask()
-
 import React, { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-
-import img from "../assets/images/logo.png";
 
 export const TaskContext = createContext();
 
@@ -34,12 +14,16 @@ export const TaskContextProvider = ({ children }) => {
     }
   });
 
+  // ue sets the inital tasksArr items with token 'tasks' when the app is mounted
+  // tasksArr will always load 'token' values if it exists or will start with empty []
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasksArr));
   }, [tasksArr]);
 
   let navigate = useNavigate();
 
+  // addTask adds a new object to the tasksArr
+  // when a fn has been executed the app will navigate back to '/tasks'
   const addTask = (title, price, file) => {
     const newTask = {
       id: Math.random() * 1000,
@@ -52,6 +36,9 @@ export const TaskContextProvider = ({ children }) => {
     navigate("/tasks");
   };
 
+  // complete task fn checks the id of the itemTask selected
+  // if true - isCompleted value of the task object is set to true
+  // if isCompleted === true - it is styled with opacity 0.5
   const completeTask = (id) => {
     setTasksArr(
       tasksArr.map((item) => {
@@ -66,6 +53,12 @@ export const TaskContextProvider = ({ children }) => {
     );
   };
 
+  // toggleModal will set the modal state to the opposite of its current state
+  // easy to navigate to and from modal
+  const toggleModal = () => {
+    setIsModal(!isModal);
+  };
+
   return (
     <TaskContext.Provider
       value={{
@@ -77,6 +70,7 @@ export const TaskContextProvider = ({ children }) => {
         setTasksArr,
         addTask,
         completeTask,
+        toggleModal,
       }}
     >
       {children}

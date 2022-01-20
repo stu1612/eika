@@ -23,17 +23,12 @@ export const TaskItem = ({ task }) => {
       <TaskContent opacity={isCompleted ? "0.5" : null}>
         <FlexStyle display="flex">
           <FlexStyle display="flex" alignItems="center">
-            <p>
-              {title}
-              {","}
-            </p>
-            <p>
-              {price}
-              {" sek"}
-            </p>
+            <p className="capitalize">{title.trim() + " ,"}</p>
+            <p>{parseFloat(price).toFixed(2) + " kr"}</p>
           </FlexStyle>
         </FlexStyle>
         <div className="task-content__image">
+          {/* if image is not uploaded - then add eika logo image */}
           <img src={img ? img : eikaImage} alt="logo" className="img-100" />
         </div>
       </TaskContent>
@@ -45,6 +40,7 @@ const TaskContent = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin: 5px 0;
   opacity: ${(props) => props.opacity || null};
 
   p {

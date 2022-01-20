@@ -48,9 +48,16 @@ h2 {
 
 p,
 span {
-  font-size: var(--font-text);
-  line-height: 1.2rem;
+  font-size: 12px;
+  line-height: 1rem;
   font-weight: 100;
+
+  @media (min-width: 768px) {
+    line-height: 1.2rem;
+    font-size: var(--font-text);
+
+
+  }
 }
 
 a {
@@ -184,7 +191,15 @@ label {
   background-color: var(--lightWhiteGrey);
   width: 100%;
   transition: all all 0.3s ease-out;
+}
 
+.error {
+  font-size:10px;
+  color: #FF4136;
+}
+
+.capitalize {
+  text-transform:capitalize
 }
 
 

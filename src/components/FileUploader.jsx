@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export const InputFile = ({ onChange, htmlID, type }) => {
+export const FileUploader = ({ onChange, htmlID, type }) => {
   return (
     <>
       <input
@@ -20,7 +20,7 @@ export const InputFile = ({ onChange, htmlID, type }) => {
         width="100%"
       >
         <p>
-          Upload Image<span>(optional)</span>
+          Upload Image <span>(optional)</span>
         </p>
       </LabelStyle>
     </>

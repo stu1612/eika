@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router";
 // npm
 import { AiFillCloseCircle } from "react-icons/ai";
@@ -17,20 +17,13 @@ import img from "../assets/images/task-img.png";
 import { TaskContext } from "../context/TaskContext";
 
 export const Modal = () => {
-  const { isLoggedIn, setIsLoggedIn, setIsModal, isModal } =
-    useContext(TaskContext);
-
-  // UE sets local storage token to signify user has logged in
-  // useEffect(() => {
-  //   setIsLoggedIn("token");
-  //   localStorage.setItem("token", JSON.stringify(isLoggedIn));
-  // }, [isLoggedIn, setIsLoggedIn]);
+  const { toggleModal } = useContext(TaskContext);
 
   let navigate = useNavigate();
 
   // user can exit modal whilst still remaining logged in on '/tasks' page
   const exitModalHandler = () => {
-    setIsModal(!isModal);
+    toggleModal();
     navigate("/tasks");
   };
 

@@ -11,36 +11,43 @@ import { Modal } from "../components/Modal";
 import { Button } from "../components/Button";
 // images
 import img from "../assets/images/header-img.png";
+import logo from "../assets/images/logo.png";
 // context
 import { TaskContext } from "../context/TaskContext";
 
 export const Home = () => {
-  const { setIsModal, isModal, isLoggedIn } = useContext(TaskContext);
+  const { toggleModal, isModal, isLoggedIn } = useContext(TaskContext);
 
   const loginHandler = () => {
     localStorage.setItem("token", JSON.stringify(isLoggedIn));
-    setIsModal(true);
+    toggleModal();
   };
+
+  const firstPara =
+    "Welcome to EIKA's shopping list. Here you will be able to create a todo list with for the furniture you want to buy";
+  const secondPara =
+    "To get started press the Add new item button and a popup will ask you the name and the price of the item you want to add.  You can also add an image!";
 
   return (
     <>
       <GridContainerStyle id="home">
+        <ImageWrapperStyle wrapperWidth="100px">
+          <img src={logo} alt="online shopping" className="img-100" />
+        </ImageWrapperStyle>
         <ImageWrapperStyle wrapperWidth="300px">
           <img src={img} alt="online shopping" className="img-100" />
         </ImageWrapperStyle>
         <TextWrapperStyle>
-          <h1>Shopping List</h1>
+          <h1>EIKA's Shopping List</h1>
         </TextWrapperStyle>
         <TextWrapperStyle
-          textAlign="justify"
+          textAlign="center"
           wrapperWidth="80%"
           wrapperMaxWidth="600px"
         >
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Voluptatibus corrupti quibusdam aliquam possimus error molestiae
-            sunt nisi accusantium dolore vero.
-          </p>
+          <p>{firstPara}</p>
+          <br />
+          <p>{secondPara}</p>
         </TextWrapperStyle>
         <FlexStyle display="flex" justifyContent="center">
           <Button title="add item" onClick={loginHandler} />
