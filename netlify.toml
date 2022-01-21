@@ -1,4 +1,4 @@
 [[redirects]]
   from = "/*"
-  to = "/tasks.jsx"
+  to = "/"
   status = 200
