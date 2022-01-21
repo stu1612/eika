@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router";
+import { v4 as uuidv4 } from "uuid";
 
 export const TaskContext = createContext();
 
@@ -26,7 +27,7 @@ export const TaskContextProvider = ({ children }) => {
   // when a fn has been executed the app will navigate back to '/tasks'
   const addTask = (title, price, file) => {
     const newTask = {
-      id: Math.random() * 1000,
+      id: uuidv4,
       title: title,
       price: price,
       img: file,
@@ -64,13 +65,12 @@ export const TaskContextProvider = ({ children }) => {
       value={{
         isLoggedIn,
         setIsLoggedIn,
-        // isModal,
-        // setIsModal,
         tasksArr,
         setTasksArr,
         addTask,
         completeTask,
         toggleModal,
+        isModal,
       }}
     >
       {children}

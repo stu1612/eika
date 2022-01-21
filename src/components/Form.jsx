@@ -14,7 +14,7 @@ const STATUS = {
 };
 
 export const Form = () => {
-  const { setIsModal, isModal, addTask } = useContext(TaskContext);
+  const { toggleModal, addTask } = useContext(TaskContext);
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [file, setFile] = useState(null);
@@ -48,26 +48,6 @@ export const Form = () => {
     });
   };
 
-  // submit handler runs form status check
-  // if all conditions are met the form will submit addTask with properties - title, price, img
-  // then the app will naviagte to '/tasks'
-  // otherwise the form will not submit
-  // const submitHandler = async (e) => {
-  //   e.preventDefault();
-  //   setStatus(STATUS.SUBMITTING);
-  //   if (isValid) {
-  //     try {
-  //       await addTask(title, price, file);
-  //       setStatus(STATUS.COMPLETED);
-  //     } catch (e) {
-  //       setSaveError(e);
-  //     } finally {
-  //       setIsModal(!isModal);
-  //     }
-  //   } else {
-  //     setStatus(STATUS.SUBMITTED);
-  //   }
-  // };
   const submitHandler = (e) => {
     e.preventDefault();
     setStatus(STATUS.SUBMITTING);
@@ -78,7 +58,7 @@ export const Form = () => {
       } catch (e) {
         setSaveError(e);
       } finally {
-        setIsModal(!isModal);
+        toggleModal();
       }
     } else {
       setStatus(STATUS.SUBMITTED);
