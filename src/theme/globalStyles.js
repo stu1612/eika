@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { devices } from "../constants/breakpoints";
 
 export const GlobalStyle = createGlobalStyle`
 *,
@@ -52,11 +53,9 @@ span {
   line-height: 1rem;
   font-weight: 100;
 
-  @media (min-width: 768px) {
+  @media ${devices.tablet} {
     line-height: 1.2rem;
     font-size: var(--font-text);
-
-
   }
 }
 
@@ -121,8 +120,12 @@ label {
 }
 
 .img-100 {
-  width: 100%;
+  width: 50%;
   object-fit: contain;
+
+  @media ${devices.tablet} {
+    width:100%
+  }
 }
 
 .button {

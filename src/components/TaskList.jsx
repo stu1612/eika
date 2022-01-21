@@ -5,6 +5,7 @@ import { TaskItem } from "./TaskItem";
 
 export const TaskList = ({ filteredTasks }) => {
   const filteredTaskArr = filteredTasks.map((task) => {
+    console.log(task);
     return <TaskItem task={task} key={task.id} />;
   });
 

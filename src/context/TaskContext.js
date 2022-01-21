@@ -23,11 +23,13 @@ export const TaskContextProvider = ({ children }) => {
 
   let navigate = useNavigate();
 
+  // const uuidv4 = require("uuid/v4");
+
   // addTask adds a new object to the tasksArr
   // when a fn has been executed the app will navigate back to '/tasks'
   const addTask = (title, price, file) => {
     const newTask = {
-      id: uuidv4,
+      id: uuidv4(),
       title: title,
       price: price,
       img: file,
