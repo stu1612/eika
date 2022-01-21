@@ -1,14 +1,40 @@
 # EIKA Shopping List
 
-This project was created as part of a test assignement to join the Novare Intensive Frontend Course.  As a self taught developer, the aim is to shoecase my knowledge of writing functional React components.  The assignment is to create an app where the user can create their own shopping list by adding a title and price ( and an image if they wish ) which is then stored in local or cloud storage.  Furthermore, the user should be able to check items which have been completed.  Items which are not completed shoould only be shown as well as render when the application is mounted.  However, the user should be able to toggle between completed and non completed tasks.  The user should also be able to sort the list items by price and name.
+This project was created as part of a test assignment to join the Novare Intensive Frontend Course.  As a self taught developer, the aim is to showcase my knowledge of writing functional React - in particular React Components, handling events, understanding of fundamental javascript logic and software architecture.  The assignment is to create a Shopping Task app where the user can create their own shopping list by adding a title and price ( and an image if they wish ) which is then stored in local or cloud storage.  Furthermore, the user should be able to check items which have been completed.  When the app is mounted all non completed tasks are displayed, with the option for the user to toggle to all completed items.  The user can also sort the task items by price or name.  As an extra feature, rather than just displayed completed / !completed tasks - the user can toggle completed items to become non completed.
 
 ### `Deployed Website`(https://eika.netlify.app/)
 
 ## Motivation
 
-Besides wanting to impress the instructors at Novare, I also wanted to approach this task trying to keep my thinking and organisation focused on the goals of the app as well as ensuring that to the best of my abilities it doesnt break.  Furthemore, I wanted to have a clear structure to my code where any developer can look at my code, folders and files and get a sense of how it has been built.  The directive given was that I need to show that i have a understanding of React where I am able to filfill the requirments of the upcoming course.  Therefore, to show my abilities I have incorporated React Router V6, Styled Components, React Context for state management, Components, demonstrated passing props, written inline conditional statements, util functions as well demonstrating higher order function methods like map and filter.
+Besides wanting to impress the instructors at Novare, I also wanted to approach this task trying to keep my thinking and organisation focused on the goals of the app as well as ensuring that to the best of my abilities it doesnt break.  Furthemore, I wanted to have a clear structure to my code where any developer can look at my code, folders and files and get a sense of how it has been built.  The directive given was that I need to show that i have a understanding of React where I will be able to fullfill the requirments of the upcoming course.  Therefore, to show my abilities I have incorporated React Router V6, Styled Components, React Context for state management, Components, demonstrated passing props, written inline conditional statements, util functions as well demonstrating higher order function methods like map and filter.  As I have been building the app i have made regular commits in a development branch and have progressivelly refactored my code, removed unused or old comments / ensured no errors or warnings are active.  In tersm of writing clean architecture, i have redcued prop drilling by created a TaskContextProvider where state and functions are passed.  I have also written util funcitons to keep my components as clean, simple yet purposeful.  I feel all my code is clearly marked of its purpose as well as navigating through a clear folder structure.
 
-## Description
+## Installation
+**For developers wanting to clone the repo** [https://github.com/stu1612/eika.git](https://github.com/stu1612/eika.git)
+### `yarn install`
+### `yarn start`
+
+
+## Tech/framework used
+- [React](https://reactjs.org/)
+- [Styled-Components](https://styled-components.com/)
+
+## Features
+
+The only piece of code which required some trial and error to make my application stand out was figuring out to not only input a imge file but have it save in LS whilst rendering.  Thanks to stack overflow I came across afew code snippets with FileReader and was able to mash together 
+
+`// fileReader function allows for uploading image file
+  // also allows to safely store in LS without getting blob error
+  const fileChangeHandler = (e) => {
+    const fileTarget = e.target.files[0];
+    let reader = new FileReader();
+    reader.onload = (e) => setFile(e.target.result);
+    reader.readAsDataURL(fileTarget);
+    setFileName(fileTarget.name);
+  };`
+
+
+
+## Code EXample
 
 *Syling*
 
@@ -136,11 +162,9 @@ When the app is mounted - isCompleted and !isCompleted tasks are rendered in dif
 };
 `
 
+## Releases
 
-## Installation
-**For developers wanting to clone the repo** [https://github.com/stu1612/eika.git](https://github.com/stu1612/eika.git)
-### `yarn install`
-### `yarn start`
+My thinking at the begining of this project was to implement cloud storage with Firebase and create a ContextReducer.  However, for this project I wanted to focus on my organisation, writing clean code and having an application that works that can be submitted.  So, future updates I aim to make is to make this application be saved to cloud storage, implement typescript and jest testing.  These are three important skills I need to learn.  But for now, my thinking is to start from the basics and do it well and build on this knowledge.  Furthermore, my planning at the begining of this project was not as good as i first thought - and so this expereince has helped better prepare me.  Example being, if I have a well laid out plan i should create my folders and files straight away with empty OOP function description.
 
 ## Support
 
@@ -148,41 +172,9 @@ For anyone wishing to see more of my work, please go to my github accout at **st
 
 Alternatively you can contact me by [email](stu.bolderson@aol.com)
 
-## Available Scripts
+## Credits
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- [PluralSight](https://www.pluralsight.com/product/skills/individuals?aid=701j0000002BGhvAAG&cq_cmp=230408478&gclid=CjwKCAiA0KmPBhBqEiwAJqKK42XeKgQVJiS0d_YbjYBtjiciucBmec7P0_wFlEcuJIdSbSOcL1ywkRoCdIYQAvD_BwE&promo=&pslp=product-skills-personal&utm_campaign=EMEA_SWE_Brand_E&utm_content=&utm_medium=digital_paid_search_google&utm_source=branded&utm_term=)
+- [Stackoverflow](https://stackoverflow.com/)
 
 # eika
