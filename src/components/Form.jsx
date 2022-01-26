@@ -51,7 +51,7 @@ export const Form = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     setStatus(STATUS.SUBMITTING);
-    if (isValid) {
+    if (isValid) 
       try {
         addTask(title, price, file);
         setStatus(STATUS.COMPLETED);
