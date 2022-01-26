@@ -14,6 +14,8 @@ export const Navigation = () => {
   useEffect(() => {
     try {
       const storageToken = localStorage.getItem("token");
+
+      // Nice way to handle the case of if there no items show the welcome, otherwise show the tasks list!
       if (storageToken) {
         JSON.parse(storageToken);
         navigate("/tasks");

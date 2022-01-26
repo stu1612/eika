@@ -16,6 +16,10 @@ export const TaskItem = ({ task }) => {
   };
 
   return (
+    // At the risk of sounding annoying, this is the problem of using this component libraries, you are mixing CSS in JSX (as if mixing HTML in React to create JSX was not messy enough by Facebook)
+    // Below the component you have a const TaskContent with some CSS wrote as a JS string that is passable, but...
+    // This component FlexStyle is usint 3 props to setup its style, either use the approach on the bottom or setup properties on the props but not both
+    // This would make hard to debug the CSS as there could 2 different places where the problem is located
     <FlexStyle display="flex" justifyContent="row" alignItems="center">
       <div>
         <input type="checkbox" onClick={completeTaskHandler} />

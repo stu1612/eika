@@ -10,7 +10,9 @@ import { Footer } from "../components/Footer";
 import { TaskContext } from "../context/TaskContext";
 // utils
 import { switchStatus } from "../utils/switchUtils";
+
 export const Tasks = () => {
+  // naming -1 again use the full name Arr is probably array but a similar problem happened between it is parameter or paragraph
   const { isModal, tasksArr } = useContext(TaskContext);
   const [status, setStatus] = useState("current");
   const [filteredTasks, setFilteredTasks] = useState([]);
@@ -36,6 +38,9 @@ export const Tasks = () => {
         />
         <Footer statusHandler={statusHandler} />
       </GridContainerStyle>
+
+      {/* Why do we have another modal, isnt the modal located at Home? */}
+      {/* During the course i will showcase a way to have a single Modal manager for the whole project */}
       {isModal ? <Modal /> : null}
     </>
   );
